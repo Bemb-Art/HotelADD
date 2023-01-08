@@ -19,21 +19,21 @@ import javax.persistence.Table;
  * @author bonni
  */
 @Entity
-@Table(name = "Tb_Paises")
+@Table(name = "tb_paises", schema = "clientes")
 public class PaisEntity implements Serializable {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Pais_Id")
+    @Column(name = "pais_id")
     private Long paisId;
     
-    @Column(name = "Pais_Nombre")
+    @Column(name = "pais_nombre")
     private String paisNombre;
     
-    @Column(name = "Pais_Codigo")
+    @Column(name = "pais_codigo")
     private String paisCodigoPostal;
     
-    @OneToMany(mappedBy = "paisFk")
+    @OneToMany(mappedBy = "paisfk")
     private List<DireccionEntity> direccion;
 
     public Long getPaisId() {

@@ -22,35 +22,35 @@ import lombok.Data;
  */
 @Data
 @Entity
-@Table(name = "Tb_Pagos")
+@Table(name = "tb_pagos", schema = "cpc")
 public class PagoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Pago_Id")
+    @Column(name = "pago_id")
     private Long pagoId;
     
-    @Column(name = "Pago_Total")
+    @Column(name = "pago_total")
     private BigDecimal pagoTotal;
     
-    @Column(name = "Pago_Abono")
+    @Column(name = "pago_abono")
     private BigDecimal pagoAbono;
     
-    @Column(name = "Pago_Debe")
+    @Column(name = "pago_debe")
     private BigDecimal pagoDebe;
     
-    @Column(name = "Pago_Fecha")
+    @Column(name = "pago_fecha")
     private Date pagoFecha;
     
     @ManyToOne
-    @JoinColumn(name = "ClienteParticular_Id", insertable = false, updatable = false)
+    @JoinColumn(name = "clienteparticular_id", insertable = false, updatable = false)
     private ClienteParticularEntity clienteParticularFk;
     
     @ManyToOne
-    @JoinColumn(name = "ClienteEmpresa_Id", insertable = false, updatable = false)
+    @JoinColumn(name = "clienteempresa_id", insertable = false, updatable = false)
     private ClientesEmpresasEntity clienteEmpresaFk;
     
     @ManyToOne
-    @JoinColumn(name = "Credito_Id", insertable = false, updatable = false)
+    @JoinColumn(name = "credito_id", insertable = false, updatable = false)
     private CreditoEntity creditoFk;
 
     public Long getPagoId() {

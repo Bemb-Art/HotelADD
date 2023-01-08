@@ -18,19 +18,19 @@ import javax.persistence.Table;
  * @author bonni
  */
 @Entity
-@Table(name = "Tb_Direcciones")
+@Table(name = "tb_direcciones", schema = "clientes")
 public class DireccionEntity {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Direccion_Id")
+    @Column(name = "direccion_id")
     private Long direccionId;
     
-    @Column(name = "Direccion_Descripcion")
+    @Column(name = "direccion_descripcion")
     private String direccionDescripcion;
 
     @ManyToOne
-    @JoinColumn(name = "Pais_Id", insertable = false, updatable = false)
+    @JoinColumn(name = "pais_id", insertable = false, updatable = false)
     private PaisEntity paisFk;
     
     public Long getDireccionId() {

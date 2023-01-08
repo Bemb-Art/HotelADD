@@ -21,23 +21,23 @@ import lombok.Data;
  */
 @Data
 @Entity
-@Table(name = "Tb_Desayunos")
+@Table(name = "tb_desayunos", schema  = "servicios")
 public class DesayunoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Desayuno_Id")
+    @Column(name = "desayuno_id")
     private Long desayunoId;
     
-    @Column(name = "Desayuno_Nombre")
+    @Column(name = "desayuno_nombre")
     private String desayunoNombre;
     
-    @Column(name = "Desayuno_Descripcion")
+    @Column(name = "desayuno_descripcion")
     private String desayunoDescripcion;
     
-    @Column(name = "Desayuno_Precio")
+    @Column(name = "desayuno_precio")
     private BigDecimal desayunoPrecio;
     
-    @OneToMany(mappedBy = "desayunoFk")
+    @OneToMany(mappedBy = "desayunofk")
     private List<ServicioEntity> servicio;
 
     public Long getDesayunoId() {

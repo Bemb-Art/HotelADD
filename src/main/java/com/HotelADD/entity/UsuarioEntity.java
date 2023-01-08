@@ -22,24 +22,24 @@ import lombok.Data;
  */
 @Data
 @Entity
-@Table(name = "Tb_Usuario")
+@Table(name = "tb_usuario", schema = "administracion")
 public class UsuarioEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Usuario_Id")
+    @Column(name = "usuario_id")
     private Long usuarioId;
     
-    @Column(name = "Usuario_Nombre")
+    @Column(name = "usuario_nombre")
     private String usuarioNombre;
     
-    @Column(name = "Usuario_Contrasenia")
+    @Column(name = "usuario_contrasenia")
     private String usuarioContrasenia;
     
-    @OneToMany(mappedBy = "usuarioFk")
+    @OneToMany(mappedBy = "usuariofk")
     private List<MantenimientoEntity> mantenimiento;
     
     @ManyToOne
-    @JoinColumn(name = "Empleado_Id", insertable = false, updatable = false)
+    @JoinColumn(name = "empleado_id", insertable = false, updatable = false)
     private EmpleadoEntity empleadoFk;
 
     public Long getUsuarioId() {

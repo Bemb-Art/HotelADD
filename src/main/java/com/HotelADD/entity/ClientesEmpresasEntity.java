@@ -22,54 +22,54 @@ import lombok.Data;
  */
 @Data
 @Entity
-@Table(name = "Tb_ClientesEmpresas")
+@Table(name = "tb_clientesempresas", schema = "cliente")
 public class ClientesEmpresasEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ClienteEmpresa_Id")
+    @Column(name = "clienteempresa_id")
     private Long clienteEmpresaId;
     
-    @Column(name = "ClienteEmpresa_Identificacion")
+    @Column(name = "clienteempresa_identificacion")
     private String clienteEmpresaIdentificacion;
     
-    @Column(name = "ClienteEmpresa_NIT")
+    @Column(name = "clienteempresa_nit")
     private String clienteEmpresaNit;
     
-    @Column(name = "ClienteEmpresa_Nombre1")
+    @Column(name = "clienteempresa_nombre1")
     private String clienteEmpresaNombre1;
     
-    @Column(name = "ClienteEmpresa_Nombre2")
+    @Column(name = "clienteempresa_nombre2")
     private String clienteEmpresaNombre2;
     
-    @Column(name = "ClienteEmpresa_Nombre3")
+    @Column(name = "clienteempresa_nombre3")
     private String clienteEmpresaNombre3;
     
-    @Column(name = "ClienteEmpresa_Apellido1")
+    @Column(name = "clienteempresa_apellido1")
     private String clienteEmpresaApellido1;
     
-    @Column(name = "ClienteEmpresa_Apellido2")
+    @Column(name = "clienteempresa_apellido2")
     private String clienteEmpresaApellido2;
     
-    @Column(name = "ClienteEmpresa_Telefono")
+    @Column(name = "clienteempresa_telefono")
     private String clienteEmpresaTelefono;
     
-    @Column(name = "ClienteEmpresa_Correo")
+    @Column(name = "clienteempresa_correo")
     private String clienteEmpresaCorreo;
     
-    @OneToMany(mappedBy = "clienteEmpresaFk")
+    @OneToMany(mappedBy = "clienteempresafk")
     private List<PagoEntity> pago;
     
-    @OneToMany(mappedBy = "clienteEmpresaFk")
+    @OneToMany(mappedBy = "clienteempresafk")
     private List<FacturaEntity> factura;
     
-    @OneToMany(mappedBy = "clienteEmpresaFk")
+    @OneToMany(mappedBy = "clienteempresafk")
     private List<ReservacionEntity> reservacion;
     
-    @OneToMany(mappedBy = "clienteEmpresaFk")
+    @OneToMany(mappedBy = "clienteempresafk")
     private List<CreditoEntity> credito;
     
     @ManyToOne
-    @JoinColumn(name = "Empresa_Id", insertable = false, updatable = false)
+    @JoinColumn(name = "empresa_id", insertable = false, updatable = false)
     private EmpresasEntity empresaFk;
 
     public Long getClienteEmpresaId() {
