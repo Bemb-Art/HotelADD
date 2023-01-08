@@ -24,27 +24,27 @@ import lombok.Data;
  */
 @Data
 @Entity
-@Table(name = "Tb_RentasVehiculos")
+@Table(name = "tb_rentasvehiculos", schema = "servicios")
 public class RentaVehiculoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "RentaVehiculo_Id")
+    @Column(name = "rentavehiculo_id")
     private Long rentaVehiculoId;
     
-    @Column(name = "RentaVehiculo_FechaInicio")
+    @Column(name = "rentavehiculo_fechaInicio")
     private Date rentaVehiculoFechaInicio;
     
-    @Column(name = "RentaVehiculo_FechaFin")
+    @Column(name = "rentavehiculo_fechaFin")
     private Date rentaVehiculoFechaFin;
     
-    @Column(name = "RentaVehiculo_Precio")
+    @Column(name = "rentavehiculo_precio")
     private BigDecimal rentaVehiculoPrecio;
     
-    @OneToMany(mappedBy = "rentaVehiculoFk")
+    @OneToMany(mappedBy = "rentavehiculofk")
     private List<ServicioEntity> servicio;
     
     @ManyToOne
-    @JoinColumn(name = "Vehiculo_Id", insertable = false, updatable = false)
+    @JoinColumn(name = "vehiculo_id", insertable = false, updatable = false)
     private VehiculoEntity vehiculoFk;
 
     public Long getRentaVehiculoId() {

@@ -23,33 +23,33 @@ import lombok.Data;
  */
 @Data
 @Entity
-@Table(name = "Tb_EstadosHabitaciones")
+@Table(name = "tb_estadoshabitaciones",  schema = "hotel")
 public class HabitacionEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Habitacion_Id")
+    @Column(name = "habitacion_id")
     private Long habitacionId;
     
-    @Column(name = "Habitacion_Tipo")
+    @Column(name = "habitacion_tipo")
     private String habitacionTipo;
     
-    @Column(name = "Habitacion_Camas")
+    @Column(name = "habitacion_camas")
     private char habitacionCamas;
     
-    @Column(name = "Habitacion_Exterior")
+    @Column(name = "habitacion_exterior")
     private char habitacionExterior;
     
-    @Column(name = "Habitacion_PrecioEstandar")
+    @Column(name = "habitacion_precioestandar")
     private BigDecimal habitacionPrecioEstandar;
     
-    @Column(name = "Habitacion_FinDeSemana")
+    @Column(name = "habitacion_findesemana")
     private BigDecimal habitacionFinDeSemana;
     
-    @OneToMany(mappedBy = "habitacionFk")
+    @OneToMany(mappedBy = "habitacionfk")
     private List<ReservacionEntity> reservacion;
     
     @ManyToOne
-    @JoinColumn(name = "EstadoHabitacion_Id", insertable = false, updatable = false)
+    @JoinColumn(name = "estadohabitacion_id", insertable = false, updatable = false)
     private EstadoHabitacionEntity estadoHabitacionFk;
 
     public Long getHabitacionId() {

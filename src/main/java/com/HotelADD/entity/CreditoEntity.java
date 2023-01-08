@@ -23,33 +23,33 @@ import lombok.Data;
  */
 @Data
 @Entity
-@Table(name = "Tb_Creditos")
+@Table(name = "tb_creditos", schema = "cpc")
 public class CreditoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Credito_Id")
+    @Column(name = "credito_id")
     private Long creditoId;
     
-    @Column(name = "Credito_Numero")
+    @Column(name = "credito_numero")
     private String creditoNumero;
     
-    @Column(name = "Credito_Total")
+    @Column(name = "credito_total")
     private BigDecimal creditoTotal;
     
-    @Column(name = "Credito_Dias")
+    @Column(name = "credito_dias")
     private String creditoDias;
     
-    @Column(name = "Credito_Estado")
+    @Column(name = "credito_estado")
     private String creditoEstado;
     
-    @OneToMany(mappedBy = "creditoFk")
+    @OneToMany(mappedBy = "creditofk")
     private List<PagoEntity> pago;
     
-    @OneToMany(mappedBy = "creditoFk")
+    @OneToMany(mappedBy = "creditofk")
     private List<FacturaEntity> factura;
     
     @ManyToOne
-    @JoinColumn(name = "ClienteEmpresa_Id", insertable = false, updatable = false)
+    @JoinColumn(name = "clienteempresa_id", insertable = false, updatable = false)
     private ClientesEmpresasEntity clienteEmpresaFk;
 
     public Long getCreditoId() {

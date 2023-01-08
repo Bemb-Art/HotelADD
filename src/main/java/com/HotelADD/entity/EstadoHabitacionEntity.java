@@ -22,21 +22,21 @@ import lombok.Data;
  */
 @Data
 @Entity
-@Table(name = "Tb_EstadosHabitaciones")
+@Table(name = "tb_estadoshabitaciones", schema = "hotel")
 public class EstadoHabitacionEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "EstadoHabitacion_Id")
+    @Column(name = "estadohabitacion_id")
     private Long estadoHabitacionId;
     
-    @Column(name = "EstadoHabitacion_Tipo")
+    @Column(name = "estadohabitacion_tipo")
     private String estadoHabitacionTipo;   
     
-    @OneToMany(mappedBy = "estadoHabitacionFk")
+    @OneToMany(mappedBy = "estadohabitacionfk")
     private List<HabitacionEntity> habitacion;
     
     @ManyToOne
-    @JoinColumn(name = "Mantenimiento_Id", insertable = false, updatable = false)
+    @JoinColumn(name = "mantenimiento_id", insertable = false, updatable = false)
     private MantenimientoEntity mantenimientoFk;
 
     public Long getEstadoHabitacionId() {

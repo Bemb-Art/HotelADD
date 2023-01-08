@@ -27,6 +27,11 @@ public class CountryDto {
     public void setCountryPostalCode(String countryPostalCode) {
         this.countryPostalCode = countryPostalCode;
     }
+
+    @Override
+    public String toString() {
+        return "CountryDto{" + "countryName=" + countryName + ", countryPostalCode=" + countryPostalCode + '}';
+    }
     
     
 }

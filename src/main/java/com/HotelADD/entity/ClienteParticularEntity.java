@@ -20,47 +20,47 @@ import lombok.Data;
  */
 @Data
 @Entity
-@Table(name = "Tb_ClientesParticulares")
+@Table(name = "tb_clientesparticulares", schema = "cliente")
 public class ClienteParticularEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ClienteParticular_Id")
+    @Column(name = "clienteparticular_id")
     private Long clienteParticularId;
     
-    @Column(name = "ClienteParticular_Identificacion")
+    @Column(name = "clienteparticular_identificacion")
     private String clienteParticularIdentificacion;
     
-    @Column(name = "ClienteParticular_NIT")
+    @Column(name = "clienteparticular_nit")
     private String clienteParticularNit;
     
-    @Column(name = "ClienteEmpresa_Nombre1")
+    @Column(name = "clienteempresa_nombre1")
     private String clienteParticularNombre1;
     
-    @Column(name = "ClienteParticular_Nombre2")
+    @Column(name = "clienteparticular_nombre2")
     private String clienteParticularNombre2;
     
-    @Column(name = "ClienteParticular_Nombre3")
+    @Column(name = "clienteparticular_nombre3")
     private String clienteParticularNombre3;
     
-    @Column(name = "ClienteParticular_Apellido1")
+    @Column(name = "clienteparticular_apellido1")
     private String clienteParticularApellido1;
     
-    @Column(name = "ClienteParticular_Apellido2")
+    @Column(name = "clienteparticular_apellido2")
     private String clienteParticularApellido2;
     
-    @Column(name = "ClienteParticular_Telefono")
+    @Column(name = "clienteparticular_telefono")
     private String clienteParticularTelefono;
     
-    @Column(name = "ClienteParticular_Correo")
+    @Column(name = "clienteparticular_correo")
     private String clienteParticularCorreo;
     
-    @OneToMany(mappedBy = "clienteParticularFk")
+    @OneToMany(mappedBy = "clienteparticularfk")
     private List<PagoEntity> pago;
     
-    @OneToMany(mappedBy = "clienteParticularFk")
+    @OneToMany(mappedBy = "clienteparticularfk")
     private List<FacturaEntity> factura;
     
-    @OneToMany(mappedBy = "clienteParticularFk")
+    @OneToMany(mappedBy = "clienteparticularfk")
     private List<ReservacionEntity> reservacion;
 
     public Long getClienteParticularId() {

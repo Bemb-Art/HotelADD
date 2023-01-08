@@ -5,13 +5,12 @@
 package com.HotelADD.crud;
 
 import com.HotelADD.entity.PaisEntity;
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  *
  * @author bonni
  */
-public interface PaisCrudRepository extends CrudRepository<PaisEntity, Long>{
+public interface PaisCrudRepository extends JpaRepository<PaisEntity, Long>{
     
 }

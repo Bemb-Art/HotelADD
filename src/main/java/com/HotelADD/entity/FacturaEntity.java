@@ -21,35 +21,35 @@ import lombok.Data;
  */
 @Data
 @Entity
-@Table(name = "Tb_Facturas")
+@Table(name = "tb_facturas", schema = "cpc")
 public class FacturaEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Factura_Id")
+    @Column(name = "factura_id")
     private Long facturaId;
     
-    @Column(name = "Factura_Numero")
+    @Column(name = "factura_numero")
     private String facturaNumero;
     
-    @Column(name = "Factura_Serie")
+    @Column(name = "factura_serie")
     private String facturaSerie;
     
-    @Column(name = "Factura_Total")
+    @Column(name = "factura_total")
     private BigDecimal facturaTotal;
     
-    @Column(name = "Factura_Estado")
+    @Column(name = "factura_estado")
     private String facturaEstado;
     
     @ManyToOne
-    @JoinColumn(name = "ClienteParticular_Id", insertable = false, updatable = false)
+    @JoinColumn(name = "clienteparticular_id", insertable = false, updatable = false)
     private ClienteParticularEntity clienteParticularFk;
     
     @ManyToOne
-    @JoinColumn(name = "ClienteEmpresa_Id", insertable = false, updatable = false)
+    @JoinColumn(name = "clienteempresa_id", insertable = false, updatable = false)
     private ClientesEmpresasEntity clienteEmpresaFk;
     
     @ManyToOne
-    @JoinColumn(name = "Credito_Id", insertable = false, updatable = false)
+    @JoinColumn(name = "credito_id", insertable = false, updatable = false)
     private CreditoEntity creditoFk;
 
     public Long getFacturaId() {

@@ -21,42 +21,42 @@ import lombok.Data;
  */
 @Data
 @Entity
-@Table(name = "Tb_Reservaciones")
+@Table(name = "tb_reservaciones", schema = "hotel")
 public class ReservacionEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Reservacion_Id")
+    @Column(name = "reservacion_id")
     private Long reservacionId;
     
-    @Column(name = "Reservacion_Numero")
+    @Column(name = "reservacion_numero")
     private Integer reservacionNumero;
     
-    @Column(name = "Reservacion_FechaInicio")
+    @Column(name = "reservacion_fechainicio")
     private Date reservacionFechaInicio;
     
-    @Column(name = "Reservacion_FechaFin")
+    @Column(name = "reservacion_fechafin")
     private Date reservacionFechaFin;
     
-    @Column(name = "Reservacion_HuespedAdulto")
+    @Column(name = "reservacion_huespedadulto")
     private char reservacionHuespedAdulto;
     
-    @Column(name = "Reservacion_HuespedNinio")
+    @Column(name = "reservacion_huespedninio")
     private char reservacionNinio;
     
     @ManyToOne
-    @JoinColumn(name = "ClienteParticular_Id", insertable = false, updatable = false)
+    @JoinColumn(name = "clienteparticular_id", insertable = false, updatable = false)
     private ClienteParticularEntity clienteParticularFk;
     
     @ManyToOne
-    @JoinColumn(name = "ClienteEmpresa_Id", insertable = false, updatable = false)
+    @JoinColumn(name = "clienteempresa_id", insertable = false, updatable = false)
     private ClientesEmpresasEntity clienteEmpresaFk;
     
     @ManyToOne
-    @JoinColumn(name = "Habitacion_Id", insertable = false, updatable = false)
+    @JoinColumn(name = "habitacion_id", insertable = false, updatable = false)
     private HabitacionEntity habitacionFk;
     
     @ManyToOne
-    @JoinColumn(name = "Servicio_Id", insertable = false, updatable = false)
+    @JoinColumn(name = "servicio_id", insertable = false, updatable = false)
     private ServicioEntity serivicioFk;
 
     public Long getReservacionId() {

@@ -22,29 +22,29 @@ import lombok.Data;
  */
 @Data
 @Entity
-@Table(name = "Tb_Servicios")
+@Table(name = "tb_servicios", schema = "servicios")
 public class ServicioEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Servicio_Id")
+    @Column(name = "servicio_id")
     private Long servicioId;
     
-    @Column(name = "Servicio_Descripcion")
+    @Column(name = "servicio_descripcion")
     private String servicioDescripcion;
     
-    @OneToMany(mappedBy = "servicioFk")
+    @OneToMany(mappedBy = "serviciofk")
     private List<ReservacionEntity> reservacion;
     
     @ManyToOne
-    @JoinColumn(name = "RentaVehiculo_Id", insertable = false, updatable = false)
+    @JoinColumn(name = "rentavehiculo_id", insertable = false, updatable = false)
     private RentaVehiculoEntity rentaVehiculoFk;
     
     @ManyToOne
-    @JoinColumn(name = "Desayuno_Id", insertable = false, updatable = false)
+    @JoinColumn(name = "desayuno_id", insertable = false, updatable = false)
     private DesayunoEntity desayunoFk;
     
     @ManyToOne
-    @JoinColumn(name = "Traslado_Id", insertable = false, updatable = false)
+    @JoinColumn(name = "traslado_id", insertable = false, updatable = false)
     private TrasladoEntiy trasladoFk;
 
     public Long getServicioId() {

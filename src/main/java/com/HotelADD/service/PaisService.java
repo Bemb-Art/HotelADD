@@ -4,9 +4,9 @@
  */
 package com.HotelADD.service;
 
-import com.HotelADD.crud.PaisCrudRepository;
-import com.HotelADD.repository.PaisRepository;
+import com.HotelADD.dto.CountryInDto;
 import com.HotelADD.entity.PaisEntity;
+import com.HotelADD.mapper.CountryInDtoToPais;
 import com.HotelADD.mapper.CountryMapper;
 import java.util.List;
 import org.springframework.stereotype.Service;
@@ -17,17 +17,20 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class PaisService {
-    private final PaisCrudRepository repo;
-    private final CountryMapper mapper;
-    private final PaisRepository repository;
+    //private final CountryInDtoToPais mapper;
+    //private final PaisRepository repository;
 
-    public PaisService(PaisRepository repo, CountryMapper mapper, PaisCrudRepository repository) {
-        this.repository = repo;
-        this.mapper = mapper;
-        this.repo = repository;
-    }
-
-    public List<PaisEntity> findAll (){
-        return (List<PaisEntity>) this.repo.findAll();
-    }
+//    public PaisService(PaisRepository repo, CountryInDtoToPais mapper) {
+//        this.repository = repo;
+//        this.mapper = mapper;
+//    }
+//    
+//    public PaisEntity createCountry(CountryInDto country){
+//        PaisEntity pais = mapper.map(country);
+//        return this.repository.save(pais);
+//    }
+//
+//    public List<PaisEntity> findAll (){
+//        return (List<PaisEntity>) this.repository.findAll();
+//    }
 }

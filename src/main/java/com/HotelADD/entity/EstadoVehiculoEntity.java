@@ -20,17 +20,17 @@ import lombok.Data;
  */
 @Data
 @Entity
-@Table(name = "Tb_EstadosVehiculos")
+@Table(name = "tb_estadosvehiculos", schema = "servicios")
 public class EstadoVehiculoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "EstadoVehiculo_Id")
+    @Column(name = "estadovehiculo_id")
     private Long estadoVehiculoId;
     
-    @Column(name = "EstadoVehiculo_Descripcion")
+    @Column(name = "estadovehiculo_descripcion")
     private String estadoVehiculoDescripcion;
     
-    @OneToMany(mappedBy = "estadoVehiculoFk")
+    @OneToMany(mappedBy = "estadovehiculofk")
     private List<VehiculoEntity> vehiculo;
 
     public Long getEstadoVehiculoId() {
