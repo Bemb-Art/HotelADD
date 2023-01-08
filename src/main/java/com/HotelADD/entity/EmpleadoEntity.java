@@ -20,35 +20,35 @@ import lombok.Data;
  */
 @Data
 @Entity
-@Table(name = "Tb_Empleados")
+@Table(name = "tb_empleados",  schema = "administracion")
 public class EmpleadoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Empleado_Id")
+    @Column(name = "empleado_id")
     private Long empleadoId;
     
-    @Column(name = "Empleado_Nombre1")
+    @Column(name = "empleado_nombre1")
     private String empleadoNombre1;
     
-    @Column(name = "Empleado_Nombre2")
+    @Column(name = "empleado_nombre2")
     private String empleadoNombre2;
     
-    @Column(name = "Empleado_Nombre3")
+    @Column(name = "empleado_nombre3")
     private String empleadoNombre3;
     
-    @Column(name = "Empleado_Apellido1")
+    @Column(name = "empleado_apellido1")
     private String empleadoApellido1;
     
-    @Column(name = "Empleado_Apellido2")
+    @Column(name = "empleado_apellido2")
     private String empleadoApellido2;
     
-    @Column(name = "Empleado_Telefono")
+    @Column(name = "empleado_telefono")
     private String empleadoTelefono;
     
-    @Column(name = "Empleado_Correo")
+    @Column(name = "empleado_correo")
     private String empleadoCorreo;
     
-    @OneToMany(mappedBy = "empleadoFk")
+    @OneToMany(mappedBy = "empleadofk")
     private List<UsuarioEntity> usuario;
 
     public Long getEmpleadoId() {
