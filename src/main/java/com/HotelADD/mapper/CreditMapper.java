@@ -26,7 +26,6 @@ public interface CreditMapper {
     })
     CreditDto toCredit(CreditoEntity credito);
     
-    @InheritInverseConfiguration
-    @Mapping(target = "creditoId", ignore = true)        
+    @InheritInverseConfiguration        
     CreditoEntity toCredito(CreditDto credit);
 }

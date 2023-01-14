@@ -4,6 +4,7 @@
  */
 package com.HotelADD.entity;
 
+import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,7 +22,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "tb_estadosvehiculos", schema = "servicios")
-public class EstadoVehiculoEntity {
+public class EstadoVehiculoEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "estadovehiculo_id")
@@ -30,7 +31,7 @@ public class EstadoVehiculoEntity {
     @Column(name = "estadovehiculo_descripcion")
     private String estadoVehiculoDescripcion;
     
-    @OneToMany(mappedBy = "estadovehiculofk")
+    @OneToMany(mappedBy = "estadoVehiculoFk")
     private List<VehiculoEntity> vehiculo;
 
     public Long getEstadoVehiculoId() {

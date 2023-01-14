@@ -30,7 +30,6 @@ public interface ReservationMapper {
     })
     ReservationDto toReservation(ReservacionEntity reservacion);
     
-    @InheritInverseConfiguration  
-    @Mapping(target = "reservacionId", ignore = true)        
+    @InheritInverseConfiguration          
     ReservacionEntity toReservacion(ReservationDto reservation);
 }

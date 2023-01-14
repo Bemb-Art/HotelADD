@@ -4,12 +4,15 @@
  */
 package com.HotelADD.entity;
 
+import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.Data;
@@ -21,7 +24,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "tb_empresas", schema = "clientes")
-public class EmpresasEntity {
+public class EmpresasEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "empresa_id")
@@ -36,9 +39,15 @@ public class EmpresasEntity {
     @Column(name = "empresa_telefono")
     private String empresaTelefono;
     
-    @OneToMany(mappedBy = "empresafk")
+    @Column(name = "empresa_correo")
+    private String empresaCorreo;
+    
+    @Column(name = "empresa_direccion")
+    private String empresaDireccion;
+    
+    @OneToMany(mappedBy = "empresaFk")
     private List<ClientesEmpresasEntity> clienteEmpresa;
-
+        
     public Long getEmpresaId() {
         return empresaId;
     }
@@ -70,5 +79,22 @@ public class EmpresasEntity {
     public void setEmpresaTelefono(String empresaTelefono) {
         this.empresaTelefono = empresaTelefono;
     }
-    
+
+    public String getEmpresaCorreo() {
+        return empresaCorreo;
+    }
+
+    public void setEmpresaCorreo(String empresaCorreo) {
+        this.empresaCorreo = empresaCorreo;
+    }
+
+    public String getEmpresaDireccion() {
+        return empresaDireccion;
+    }
+
+    public void setEmpresaDireccion(String empresaDireccion) {
+        this.empresaDireccion = empresaDireccion;
+    }
+
+          
 }

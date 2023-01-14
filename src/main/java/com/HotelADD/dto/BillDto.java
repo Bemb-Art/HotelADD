@@ -11,19 +11,20 @@ import java.math.BigDecimal;
  * @author bonni
  */
 public class BillDto {    
-    private String billNumber;
+    private Long billNumber;
     private String billSerie;
     private BigDecimal billTotal;
     private String billStatus;
     private ClientDto client;
     private CompanyClientDto companyClient;
     private CreditDto credit;
+    private ServiceDto service;
 
-    public String getBillNumber() {
+    public Long getBillNumber() {
         return billNumber;
     }
 
-    public void setBillNumber(String billNumber) {
+    public void setBillNumber(Long billNumber) {
         this.billNumber = billNumber;
     }
 
@@ -73,6 +74,14 @@ public class BillDto {
 
     public void setCredit(CreditDto credit) {
         this.credit = credit;
+    }
+
+    public ServiceDto getService() {
+        return service;
+    }
+
+    public void setService(ServiceDto service) {
+        this.service = service;
     }
     
     

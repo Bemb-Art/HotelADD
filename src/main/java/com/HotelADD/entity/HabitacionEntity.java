@@ -4,6 +4,7 @@
  */
 package com.HotelADD.entity;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
 import javax.persistence.Column;
@@ -23,11 +24,11 @@ import lombok.Data;
  */
 @Data
 @Entity
-@Table(name = "tb_estadoshabitaciones",  schema = "hotel")
-public class HabitacionEntity {
+@Table(name = "tb_habitaciones",  schema = "hotel")
+public class HabitacionEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "habitacion_id")
+    @Column(name = "habitacion_numero")
     private Long habitacionId;
     
     @Column(name = "habitacion_tipo")
@@ -36,21 +37,32 @@ public class HabitacionEntity {
     @Column(name = "habitacion_camas")
     private char habitacionCamas;
     
+    @Column(name = "habitacion_descripcion")
+    private String habitacionDescripcion;
+    
     @Column(name = "habitacion_exterior")
     private char habitacionExterior;
     
     @Column(name = "habitacion_precioestandar")
     private BigDecimal habitacionPrecioEstandar;
     
-    @Column(name = "habitacion_findesemana")
+    @Column(name = "habitacion_preciofindesemana")
     private BigDecimal habitacionFinDeSemana;
     
-    @OneToMany(mappedBy = "habitacionfk")
+    @OneToMany(mappedBy = "habitacionFk")
     private List<ReservacionEntity> reservacion;
     
     @ManyToOne
     @JoinColumn(name = "estadohabitacion_id", insertable = false, updatable = false)
     private EstadoHabitacionEntity estadoHabitacionFk;
+    
+    @ManyToOne
+    @JoinColumn(name = "usuario_id", insertable = false, updatable = false)
+    private UsuarioEntity usuarioFk;
+    
+    @ManyToOne
+    @JoinColumn(name = "mantenimiento_id", insertable = false, updatable = false)
+    private MantenimientoEntity mantenimientoFk;
 
     public Long getHabitacionId() {
         return habitacionId;
@@ -74,6 +86,14 @@ public class HabitacionEntity {
 
     public void setHabitacionCamas(char habitacionCamas) {
         this.habitacionCamas = habitacionCamas;
+    }
+
+    public String getHabitacionDescripcion() {
+        return habitacionDescripcion;
+    }
+
+    public void setHabitacionDescripcion(String habitacionDescripcion) {
+        this.habitacionDescripcion = habitacionDescripcion;
     }
 
     public char getHabitacionExterior() {
@@ -106,6 +126,22 @@ public class HabitacionEntity {
 
     public void setEstadoHabitacionFk(EstadoHabitacionEntity estadoHabitacionFk) {
         this.estadoHabitacionFk = estadoHabitacionFk;
+    }
+
+    public UsuarioEntity getUsuarioFk() {
+        return usuarioFk;
+    }
+
+    public void setUsuarioFk(UsuarioEntity usuarioFk) {
+        this.usuarioFk = usuarioFk;
+    }
+
+    public MantenimientoEntity getMantenimientoFk() {
+        return mantenimientoFk;
+    }
+
+    public void setMantenimientoFk(MantenimientoEntity mantenimientoFk) {
+        this.mantenimientoFk = mantenimientoFk;
     }
     
 }

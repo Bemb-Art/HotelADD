@@ -4,6 +4,7 @@
  */
 package com.HotelADD.entity;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
 import javax.persistence.Column;
@@ -24,14 +25,11 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "tb_creditos", schema = "cpc")
-public class CreditoEntity {
+public class CreditoEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "credito_id")
-    private Long creditoId;
-    
-    @Column(name = "credito_numero")
-    private String creditoNumero;
+    @Column(name = "credito_numero")    
+    private Long creditoNumero;
     
     @Column(name = "credito_total")
     private BigDecimal creditoTotal;
@@ -42,29 +40,21 @@ public class CreditoEntity {
     @Column(name = "credito_estado")
     private String creditoEstado;
     
-    @OneToMany(mappedBy = "creditofk")
+    @OneToMany(mappedBy = "creditoFk")
     private List<PagoEntity> pago;
     
-    @OneToMany(mappedBy = "creditofk")
+    @OneToMany(mappedBy = "creditoFk")
     private List<FacturaEntity> factura;
     
     @ManyToOne
     @JoinColumn(name = "clienteempresa_id", insertable = false, updatable = false)
     private ClientesEmpresasEntity clienteEmpresaFk;
 
-    public Long getCreditoId() {
-        return creditoId;
-    }
-
-    public void setCreditoId(Long creditoId) {
-        this.creditoId = creditoId;
-    }
-
-    public String getCreditoNumero() {
+    public Long getCreditoNumero() {
         return creditoNumero;
     }
 
-    public void setCreditoNumero(String creditoNumero) {
+    public void setCreditoNumero(Long creditoNumero) {
         this.creditoNumero = creditoNumero;
     }
 

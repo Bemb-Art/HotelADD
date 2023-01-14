@@ -5,7 +5,7 @@
 package com.HotelADD.mapper;
 
 import com.HotelADD.dto.TraslationDto;
-import com.HotelADD.entity.TrasladoEntiy;
+import com.HotelADD.entity.TrasladoEntity;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -22,9 +22,9 @@ public interface TraslationMapper {
         @Mapping(source = "trasladoDestino", target = "traslationDestination"),
         @Mapping(source = "trasladoPrecio", target = "traslationPrice")
     })
-    TraslationDto toTraslation(TrasladoEntiy traslado);
+    TraslationDto toTraslation(TrasladoEntity traslado);
     
     @InheritInverseConfiguration  
     @Mapping(target = "trasladoId", ignore = true)        
-    TrasladoEntiy toTraslado(TraslationDto traslation);
+    TrasladoEntity toTraslado(TraslationDto traslation);
 }

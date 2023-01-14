@@ -15,7 +15,7 @@ import org.mapstruct.Mappings;
  *
  * @author bonni
  */
-@Mapper(componentModel = "spring", uses = {ClientMapper.class, CompanyMapper.class, CreditMapper.class})
+@Mapper(componentModel = "spring", uses = {ClientMapper.class, CompanyMapper.class, CreditMapper.class, CompanyClientMapper.class, ServiceMapper.class})
 public interface BillMapper {
     @Mappings({
         @Mapping(source = "facturaNumero", target = "billNumber"),
@@ -24,11 +24,11 @@ public interface BillMapper {
         @Mapping(source = "facturaEstado", target = "billStatus"),
         @Mapping(source = "clienteParticularFk", target = "client"),
         @Mapping(source = "clienteEmpresaFk", target = "companyClient"),
-        @Mapping(source = "creditoFk", target = "credit")
+        @Mapping(source = "creditoFk", target = "credit"),
+        @Mapping(source = "serivicioFk", target = "service")
     })
     BillDto toBill(FacturaEntity Factura);
     
     @InheritInverseConfiguration
-    @Mapping(target = "facturaId", ignore = true)
     FacturaEntity toFactura(BillDto bill);
 }

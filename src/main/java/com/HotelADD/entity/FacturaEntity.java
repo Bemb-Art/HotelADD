@@ -4,6 +4,7 @@
  */
 package com.HotelADD.entity;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,14 +23,11 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "tb_facturas", schema = "cpc")
-public class FacturaEntity {
+public class FacturaEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "factura_id")
-    private Long facturaId;
-    
     @Column(name = "factura_numero")
-    private String facturaNumero;
+    private Long facturaNumero;
     
     @Column(name = "factura_serie")
     private String facturaSerie;
@@ -51,20 +49,16 @@ public class FacturaEntity {
     @ManyToOne
     @JoinColumn(name = "credito_id", insertable = false, updatable = false)
     private CreditoEntity creditoFk;
+    
+    @ManyToOne
+    @JoinColumn(name = "servicio_id", insertable = false, updatable = false)
+    private ServicioEntity serivicioFk;
 
-    public Long getFacturaId() {
-        return facturaId;
-    }
-
-    public void setFacturaId(Long facturaId) {
-        this.facturaId = facturaId;
-    }
-
-    public String getFacturaNumero() {
+    public Long getFacturaNumero() {
         return facturaNumero;
     }
 
-    public void setFacturaNumero(String facturaNumero) {
+    public void setFacturaNumero(Long facturaNumero) {
         this.facturaNumero = facturaNumero;
     }
 
@@ -115,6 +109,12 @@ public class FacturaEntity {
     public void setCreditoFk(CreditoEntity creditoFk) {
         this.creditoFk = creditoFk;
     }
-    
-    
+
+    public ServicioEntity getSerivicioFk() {
+        return serivicioFk;
+    }
+
+    public void setSerivicioFk(ServicioEntity serivicioFk) {
+        this.serivicioFk = serivicioFk;
+    }
 }

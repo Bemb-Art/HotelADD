@@ -4,6 +4,7 @@
  */
 package com.HotelADD.entity;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
 import javax.persistence.Column;
@@ -22,7 +23,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "tb_desayunos", schema  = "servicios")
-public class DesayunoEntity {
+public class DesayunoEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "desayuno_id")
@@ -37,7 +38,7 @@ public class DesayunoEntity {
     @Column(name = "desayuno_precio")
     private BigDecimal desayunoPrecio;
     
-    @OneToMany(mappedBy = "desayunofk")
+    @OneToMany(mappedBy = "desayunoFk")
     private List<ServicioEntity> servicio;
 
     public Long getDesayunoId() {

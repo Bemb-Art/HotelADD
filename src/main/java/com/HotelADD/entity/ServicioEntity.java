@@ -4,6 +4,7 @@
  */
 package com.HotelADD.entity;
 
+import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -23,7 +24,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "tb_servicios", schema = "servicios")
-public class ServicioEntity {
+public class ServicioEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "servicio_id")
@@ -32,8 +33,11 @@ public class ServicioEntity {
     @Column(name = "servicio_descripcion")
     private String servicioDescripcion;
     
-    @OneToMany(mappedBy = "serviciofk")
+    @OneToMany(mappedBy = "serivicioFk")
     private List<ReservacionEntity> reservacion;
+    
+    @OneToMany(mappedBy = "serivicioFk")
+    private List<ReservacionEntity> factura;
     
     @ManyToOne
     @JoinColumn(name = "rentavehiculo_id", insertable = false, updatable = false)
@@ -45,7 +49,7 @@ public class ServicioEntity {
     
     @ManyToOne
     @JoinColumn(name = "traslado_id", insertable = false, updatable = false)
-    private TrasladoEntiy trasladoFk;
+    private TrasladoEntity trasladoFk;
 
     public Long getServicioId() {
         return servicioId;
@@ -79,11 +83,11 @@ public class ServicioEntity {
         this.desayunoFk = desayunoFk;
     }
 
-    public TrasladoEntiy getTrasladoFk() {
+    public TrasladoEntity getTrasladoFk() {
         return trasladoFk;
     }
 
-    public void setTrasladoFk(TrasladoEntiy trasladoFk) {
+    public void setTrasladoFk(TrasladoEntity trasladoFk) {
         this.trasladoFk = trasladoFk;
     }
     

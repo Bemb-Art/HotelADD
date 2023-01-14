@@ -15,16 +15,19 @@ import org.mapstruct.Mappings;
  *
  * @author bonni
  */
-@Mapper(componentModel = "spring", uses = {RoomStatusMapper.class})
+@Mapper(componentModel = "spring", uses = {RoomStatusMapper.class, UserMapper.class, MaintenanceMapper.class})
 public interface RoomMapper {
     @Mappings({
         @Mapping(source = "habitacionId", target = "roomId"),
         @Mapping(source = "habitacionTipo", target = "roomType"),
         @Mapping(source = "habitacionCamas", target = "roomBed"),
+        @Mapping(source = "habitacionDescripcion", target = "roomDescription"),
         @Mapping(source = "habitacionExterior", target = "roomOutside"),
         @Mapping(source = "habitacionPrecioEstandar", target = "roomStandarPrice"),
         @Mapping(source = "habitacionFinDeSemana", target = "roomWeekendPrice"),
-        @Mapping(source = "estadoHabitacionFk", target = "roomStatus")
+        @Mapping(source = "estadoHabitacionFk", target = "roomStatus"),
+        @Mapping(source = "usuarioFk", target = "user"),
+        @Mapping(source = "mantenimientoFk", target = "maintenance")    
     })
     RoomDto toRoom(HabitacionEntity habitacion);
     

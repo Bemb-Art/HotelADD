@@ -20,7 +20,9 @@ public interface CompanyMapper {
     @Mappings({
         @Mapping(source = "empresaNit", target = "companyNit"),
         @Mapping(source = "empresaNombre", target = "companyName"),
-        @Mapping(source = "empresaTelefono", target = "companyPhone")
+        @Mapping(source = "empresaTelefono", target = "companyPhone"),
+        @Mapping(source = "empresaCorreo", target = "companyEmail"),
+        @Mapping(source = "empresaDireccion", target = "companydirection")            
     })
     CompanyDto toCompany(EmpresasEntity empresa);
     

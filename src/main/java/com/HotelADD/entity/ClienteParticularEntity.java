@@ -4,6 +4,7 @@
  */
 package com.HotelADD.entity;
 
+import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -20,8 +21,8 @@ import lombok.Data;
  */
 @Data
 @Entity
-@Table(name = "tb_clientesparticulares", schema = "cliente")
-public class ClienteParticularEntity {
+@Table(name = "tb_clientesparticulares", schema = "clientes")
+public class ClienteParticularEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "clienteparticular_id")
@@ -33,7 +34,7 @@ public class ClienteParticularEntity {
     @Column(name = "clienteparticular_nit")
     private String clienteParticularNit;
     
-    @Column(name = "clienteempresa_nombre1")
+    @Column(name = "clienteparticular_nombre1")
     private String clienteParticularNombre1;
     
     @Column(name = "clienteparticular_nombre2")
@@ -54,13 +55,13 @@ public class ClienteParticularEntity {
     @Column(name = "clienteparticular_correo")
     private String clienteParticularCorreo;
     
-    @OneToMany(mappedBy = "clienteparticularfk")
+    @OneToMany(mappedBy = "clienteParticularFk")
     private List<PagoEntity> pago;
     
-    @OneToMany(mappedBy = "clienteparticularfk")
+    @OneToMany(mappedBy = "clienteParticularFk")
     private List<FacturaEntity> factura;
     
-    @OneToMany(mappedBy = "clienteparticularfk")
+    @OneToMany(mappedBy = "clienteParticularFk")
     private List<ReservacionEntity> reservacion;
 
     public Long getClienteParticularId() {

@@ -14,10 +14,13 @@ public class RoomDto {
     private Long roomId;
     private String roomType;
     private char roomBed;
+    private String roomDescription;
     private char roomOutside;
     private BigDecimal roomStandarPrice;
     private BigDecimal roomWeekendPrice;
     private RoomStatusDto roomStatus;
+    private UserDto user;
+    private MaintenanceDto maintenance;
 
     public Long getRoomId() {
         return roomId;
@@ -41,6 +44,14 @@ public class RoomDto {
 
     public void setRoomBed(char roomBed) {
         this.roomBed = roomBed;
+    }
+
+    public String getRoomDescription() {
+        return roomDescription;
+    }
+
+    public void setRoomDescription(String roomDescription) {
+        this.roomDescription = roomDescription;
     }
 
     public char getRoomOutside() {
@@ -74,6 +85,21 @@ public class RoomDto {
     public void setRoomStatus(RoomStatusDto roomStatus) {
         this.roomStatus = roomStatus;
     }
-    
+
+    public UserDto getUser() {
+        return user;
+    }
+
+    public void setUser(UserDto user) {
+        this.user = user;
+    }
+
+    public MaintenanceDto getMaintenance() {
+        return maintenance;
+    }
+
+    public void setMaintenance(MaintenanceDto maintenance) {
+        this.maintenance = maintenance;
+    }
     
 }

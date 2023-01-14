@@ -4,6 +4,7 @@
  */
 package com.HotelADD.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,14 +23,11 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "tb_reservaciones", schema = "hotel")
-public class ReservacionEntity {
+public class ReservacionEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "reservacion_id")
-    private Long reservacionId;
-    
     @Column(name = "reservacion_numero")
-    private Integer reservacionNumero;
+    private Long reservacionNumero;
     
     @Column(name = "reservacion_fechainicio")
     private Date reservacionFechaInicio;
@@ -37,10 +35,10 @@ public class ReservacionEntity {
     @Column(name = "reservacion_fechafin")
     private Date reservacionFechaFin;
     
-    @Column(name = "reservacion_huespedadulto")
+    @Column(name = "reservacion_adulto")
     private char reservacionHuespedAdulto;
     
-    @Column(name = "reservacion_huespedninio")
+    @Column(name = "reservacion_ninio")
     private char reservacionNinio;
     
     @ManyToOne
@@ -59,22 +57,14 @@ public class ReservacionEntity {
     @JoinColumn(name = "servicio_id", insertable = false, updatable = false)
     private ServicioEntity serivicioFk;
 
-    public Long getReservacionId() {
-        return reservacionId;
-    }
-
-    public void setReservacionId(Long reservacionId) {
-        this.reservacionId = reservacionId;
-    }
-
-    public Integer getReservacionNumero() {
+    public Long getReservacionNumero() {
         return reservacionNumero;
     }
 
-    public void setReservacionNumero(Integer reservacionNumero) {
+    public void setReservacionNumero(Long reservacionNumero) {
         this.reservacionNumero = reservacionNumero;
     }
-
+    
     public Date getReservacionFechaInicio() {
         return reservacionFechaInicio;
     }

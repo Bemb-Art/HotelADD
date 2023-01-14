@@ -12,6 +12,8 @@ public class CompanyDto {
     private String companyNit;
     private String companyName;
     private String companyPhone;
+    private String companyEmail;
+    private String companydirection;
 
     public String getCompanyNit() {
         return companyNit;
@@ -36,6 +38,23 @@ public class CompanyDto {
     public void setCompanyPhone(String companyPhone) {
         this.companyPhone = companyPhone;
     }
+
+    public String getCompanyEmail() {
+        return companyEmail;
+    }
+
+    public void setCompanyEmail(String companyEmail) {
+        this.companyEmail = companyEmail;
+    }
+
+    public String getCompanydirection() {
+        return companydirection;
+    }
+
+    public void setCompanydirection(String companydirection) {
+        this.companydirection = companydirection;
+    }
+
     
     
 }

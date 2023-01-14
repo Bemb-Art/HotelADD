@@ -4,6 +4,7 @@
  */
 package com.HotelADD.entity;
 
+import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,16 +15,14 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import lombok.Data;
 
 /**
  *
  * @author bonni
  */
-@Data
 @Entity
-@Table(name = "tb_usuario", schema = "administracion")
-public class UsuarioEntity {
+@Table(name = "tb_usuarios", schema = "administracion")
+public class UsuarioEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "usuario_id")
@@ -35,8 +34,11 @@ public class UsuarioEntity {
     @Column(name = "usuario_contrasenia")
     private String usuarioContrasenia;
     
-    @OneToMany(mappedBy = "usuariofk")
+    @OneToMany(mappedBy = "usuarioFk")
     private List<MantenimientoEntity> mantenimiento;
+    
+    @OneToMany(mappedBy = "usuarioFk")
+    private List<HabitacionEntity> habitacion;
     
     @ManyToOne
     @JoinColumn(name = "empleado_id", insertable = false, updatable = false)

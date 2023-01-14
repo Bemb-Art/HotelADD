@@ -4,6 +4,7 @@
  */
 package com.HotelADD.entity;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
@@ -25,22 +26,22 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "tb_rentasvehiculos", schema = "servicios")
-public class RentaVehiculoEntity {
+public class RentaVehiculoEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "rentavehiculo_id")
     private Long rentaVehiculoId;
     
-    @Column(name = "rentavehiculo_fechaInicio")
+    @Column(name = "rentavehiculo_fechainicio")
     private Date rentaVehiculoFechaInicio;
     
-    @Column(name = "rentavehiculo_fechaFin")
+    @Column(name = "rentavehiculo_fechafin")
     private Date rentaVehiculoFechaFin;
     
     @Column(name = "rentavehiculo_precio")
     private BigDecimal rentaVehiculoPrecio;
     
-    @OneToMany(mappedBy = "rentavehiculofk")
+    @OneToMany(mappedBy = "rentaVehiculoFk")
     private List<ServicioEntity> servicio;
     
     @ManyToOne

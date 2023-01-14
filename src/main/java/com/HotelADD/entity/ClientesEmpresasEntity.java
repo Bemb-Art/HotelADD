@@ -4,6 +4,7 @@
  */
 package com.HotelADD.entity;
 
+import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,8 +23,8 @@ import lombok.Data;
  */
 @Data
 @Entity
-@Table(name = "tb_clientesempresas", schema = "cliente")
-public class ClientesEmpresasEntity {
+@Table(name = "tb_clientesempresas", schema = "clientes")
+public class ClientesEmpresasEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "clienteempresa_id")
@@ -56,16 +57,16 @@ public class ClientesEmpresasEntity {
     @Column(name = "clienteempresa_correo")
     private String clienteEmpresaCorreo;
     
-    @OneToMany(mappedBy = "clienteempresafk")
+    @OneToMany(mappedBy = "clienteEmpresaFk")
     private List<PagoEntity> pago;
     
-    @OneToMany(mappedBy = "clienteempresafk")
+    @OneToMany(mappedBy = "clienteEmpresaFk")
     private List<FacturaEntity> factura;
     
-    @OneToMany(mappedBy = "clienteempresafk")
+    @OneToMany(mappedBy = "clienteEmpresaFk")
     private List<ReservacionEntity> reservacion;
     
-    @OneToMany(mappedBy = "clienteempresafk")
+    @OneToMany(mappedBy = "clienteEmpresaFk")
     private List<CreditoEntity> credito;
     
     @ManyToOne

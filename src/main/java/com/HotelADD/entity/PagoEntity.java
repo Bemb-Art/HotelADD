@@ -4,6 +4,7 @@
  */
 package com.HotelADD.entity;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.Column;
@@ -23,20 +24,14 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "tb_pagos", schema = "cpc")
-public class PagoEntity {
+public class PagoEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "pago_id")
-    private Long pagoId;
+    @Column(name = "pago_numero")
+    private Long pagoNumero;
     
     @Column(name = "pago_total")
     private BigDecimal pagoTotal;
-    
-    @Column(name = "pago_abono")
-    private BigDecimal pagoAbono;
-    
-    @Column(name = "pago_debe")
-    private BigDecimal pagoDebe;
     
     @Column(name = "pago_fecha")
     private Date pagoFecha;
@@ -53,12 +48,12 @@ public class PagoEntity {
     @JoinColumn(name = "credito_id", insertable = false, updatable = false)
     private CreditoEntity creditoFk;
 
-    public Long getPagoId() {
-        return pagoId;
+    public Long getPagoNumero() {
+        return pagoNumero;
     }
 
-    public void setPagoId(Long pagoId) {
-        this.pagoId = pagoId;
+    public void setPagoNumero(Long pagoNumero) {
+        this.pagoNumero = pagoNumero;
     }
 
     public BigDecimal getPagoTotal() {
@@ -67,22 +62,6 @@ public class PagoEntity {
 
     public void setPagoTotal(BigDecimal pagoTotal) {
         this.pagoTotal = pagoTotal;
-    }
-
-    public BigDecimal getPagoAbono() {
-        return pagoAbono;
-    }
-
-    public void setPagoAbono(BigDecimal pagoAbono) {
-        this.pagoAbono = pagoAbono;
-    }
-
-    public BigDecimal getPagoDebe() {
-        return pagoDebe;
-    }
-
-    public void setPagoDebe(BigDecimal pagoDebe) {
-        this.pagoDebe = pagoDebe;
     }
 
     public Date getPagoFecha() {
@@ -99,6 +78,22 @@ public class PagoEntity {
 
     public void setClienteEmpresaFk(ClientesEmpresasEntity clienteEmpresaFk) {
         this.clienteEmpresaFk = clienteEmpresaFk;
+    }
+
+    public ClienteParticularEntity getClienteParticularFk() {
+        return clienteParticularFk;
+    }
+
+    public void setClienteParticularFk(ClienteParticularEntity clienteParticularFk) {
+        this.clienteParticularFk = clienteParticularFk;
+    }
+
+    public CreditoEntity getCreditoFk() {
+        return creditoFk;
+    }
+
+    public void setCreditoFk(CreditoEntity creditoFk) {
+        this.creditoFk = creditoFk;
     }
     
 }
