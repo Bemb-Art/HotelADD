@@ -27,12 +27,20 @@ public class EmpresasController {
         this.eService = eService;
     }
     
+<<<<<<< HEAD
     @PostMapping("/crearEmpresas")
+=======
+    @PostMapping("/CreateCompany")
+>>>>>>> b7ee6da0c7e474410ddf120a501902833a0560fb
     public EmpresasEntity createEmpresas(@RequestBody CompanyDto company) {
        return this.eService.createEmpresa(company);
     }
     
+<<<<<<< HEAD
     @GetMapping("/obtenerEmpresas")
+=======
+    @GetMapping("/allCompanys")
+>>>>>>> b7ee6da0c7e474410ddf120a501902833a0560fb
     public List<EmpresasEntity> getEmpresas(){
         return this.eService.getEmpresa();
     }

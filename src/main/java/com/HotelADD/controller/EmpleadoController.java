@@ -27,12 +27,12 @@ public class EmpleadoController {
         this.eService = eService;
     }
     
-    @GetMapping
+    @GetMapping("/allEmployes")
     public List<EmpleadoEntity> getEmpleado(){
         return this.eService.getEmpleado();
     }
     
-    @PostMapping
+    @PostMapping("/CreateEmploye")
     public EmpleadoEntity createEmpleado(@RequestBody EmployeeDto employee) {
        return this.eService.createEmpleado(employee);
     }
