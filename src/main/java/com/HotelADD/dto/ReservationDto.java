@@ -14,12 +14,12 @@ public class ReservationDto {
     private Integer reservationNumber;
     private Date reservationEntry;
     private Date reservationExit;
-    private char reservationAdult;
-    private char reservationKid;
-    private ClientDto client;
-    private CompanyClientDto companyClient;
-    private RoomDto room;
-    private ServiceDto service;
+    private String reservationAdult;
+    private String reservationKid;
+    private int clientId;
+    private int companyClientId;
+    private int roomId;
+    private int serviceId;
     
     public Integer getReservationNumber() {
         return reservationNumber;
@@ -45,54 +45,54 @@ public class ReservationDto {
         this.reservationExit = reservationExit;
     }
 
-    public char getReservationAdult() {
+    public String getReservationAdult() {
         return reservationAdult;
     }
 
-    public void setReservationAdult(char reservationAdult) {
-        this.reservationAdult = reservationAdult;
+    public String setReservationAdult(String reservationAdult) {
+        return this.reservationAdult = reservationAdult;
     }
 
-    public char getReservationKid() {
+    public String getReservationKid() {
         return reservationKid;
     }
 
-    public void setReservationKid(char reservationKid) {
-        this.reservationKid = reservationKid;
+    public String setReservationKid(String reservationKid) {
+        return this.reservationKid = reservationKid;
     }
 
-    public ClientDto getClient() {
-        return client;
+    public int getClientId() {
+        return clientId;
     }
 
-    public void setClient(ClientDto client) {
-        this.client = client;
+    public void setClientId(int clientId) {
+        this.clientId = clientId;
     }
 
-    public CompanyClientDto getCompanyClient() {
-        return companyClient;
+    public int getCompanyClientId() {
+        return companyClientId;
     }
 
-    public void setCompanyClient(CompanyClientDto companyClient) {
-        this.companyClient = companyClient;
+    public void setCompanyClientId(int companyClientId) {
+        this.companyClientId = companyClientId;
     }
 
-    public RoomDto getRoom() {
-        return room;
+    public int getRoomId() {
+        return roomId;
     }
 
-    public void setRoom(RoomDto room) {
-        this.room = room;
+    public void setRoomId(int roomId) {
+        this.roomId = roomId;
     }
 
-    public ServiceDto getService() {
-        return service;
+    public int getServiceId() {
+        return serviceId;
     }
 
-    public void setService(ServiceDto service) {
-        this.service = service;
+    public void setServiceId(int serviceId) {
+        this.serviceId = serviceId;
     }
-    
+
     
     
 }

@@ -29,12 +29,12 @@ public class ReservacionController {
         this.rService = rService;
     }
     
-    @PostMapping
+    @PostMapping("/crearReservacion")
     public ReservacionEntity createReservacion(@RequestBody ReservationDto reservation) {
        return this.rService.createReservacion(reservation);
     }
     
-    @GetMapping
+    @GetMapping("/obtenerReservacion")
     public List<ReservacionEntity> getReservacion(){
         return this.rService.getReservacion();
     }

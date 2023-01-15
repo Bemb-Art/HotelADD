@@ -10,9 +10,9 @@ package com.HotelADD.dto;
  */
 public class ServiceDto {
     private String serviceDescription;
-    private VehicleRentalDto vehicleRental;
-    private TraslationDto traslation;
-    private BreakfastDto breakfast;
+    private int vehicleRentalId;
+    private int traslationId;
+    private int breakfastId;
 
     public String getServiceDescription() {
         return serviceDescription;
@@ -22,29 +22,29 @@ public class ServiceDto {
         this.serviceDescription = serviceDescription;
     }
 
-    public VehicleRentalDto getVehicleRental() {
-        return vehicleRental;
+    public int getVehicleRentalId() {
+        return vehicleRentalId;
     }
 
-    public void setVehicleRental(VehicleRentalDto vehicleRental) {
-        this.vehicleRental = vehicleRental;
+    public void setVehicleRentalId(int vehicleRentalId) {
+        this.vehicleRentalId = vehicleRentalId;
     }
 
-    public TraslationDto getTraslation() {
-        return traslation;
+    public int getTraslationId() {
+        return traslationId;
     }
 
-    public void setTraslation(TraslationDto traslation) {
-        this.traslation = traslation;
+    public void setTraslationId(int traslationId) {
+        this.traslationId = traslationId;
     }
 
-    public BreakfastDto getBreakfast() {
-        return breakfast;
+    public int getBreakfastId() {
+        return breakfastId;
     }
 
-    public void setBreakfast(BreakfastDto breakfast) {
-        this.breakfast = breakfast;
+    public void setBreakfastId(int breakfastId) {
+        this.breakfastId = breakfastId;
     }
-    
+
     
 }

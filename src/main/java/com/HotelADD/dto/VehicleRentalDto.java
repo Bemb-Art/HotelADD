@@ -15,7 +15,7 @@ public class VehicleRentalDto {
     private Date vehicleRentalStartDate;
     private Date vehicleRentalEndDate;
     private BigDecimal vehicleRentalPrice;
-    private VehicleDto vehicle;
+    private int vehicleId;
 
     public Date getVehicleRentalStartDate() {
         return vehicleRentalStartDate;
@@ -41,12 +41,12 @@ public class VehicleRentalDto {
         this.vehicleRentalPrice = vehicleRentalPrice;
     }
 
-    public VehicleDto getVehicle() {
-        return vehicle;
+    public Integer getVehicleId() {
+        return vehicleId;
     }
 
-    public void setVehicle(VehicleDto vehicle) {
-        this.vehicle = vehicle;
+    public void setVehicleId(Integer vehicleId) {
+        this.vehicleId = vehicleId;
     }
         
 }

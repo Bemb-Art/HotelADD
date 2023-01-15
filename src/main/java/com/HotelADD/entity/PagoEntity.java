@@ -36,13 +36,22 @@ public class PagoEntity implements Serializable {
     @Column(name = "pago_fecha")
     private Date pagoFecha;
     
+    @Column(name = "clienteparticular_id")
+    private int clienteParticularId;
+    
     @ManyToOne
     @JoinColumn(name = "clienteparticular_id", insertable = false, updatable = false)
     private ClienteParticularEntity clienteParticularFk;
     
+    @Column(name = "clienteempresa_id")
+    private int clienteEmpresaId;
+    
     @ManyToOne
     @JoinColumn(name = "clienteempresa_id", insertable = false, updatable = false)
     private ClientesEmpresasEntity clienteEmpresaFk;
+    
+    @Column(name = "credito_id")
+    private int creditoId;
     
     @ManyToOne
     @JoinColumn(name = "credito_id", insertable = false, updatable = false)
@@ -94,6 +103,30 @@ public class PagoEntity implements Serializable {
 
     public void setCreditoFk(CreditoEntity creditoFk) {
         this.creditoFk = creditoFk;
+    }
+
+    public int getClienteParticularId() {
+        return clienteParticularId;
+    }
+
+    public void setClienteParticularId(int clienteparticularId) {
+        this.clienteParticularId = clienteparticularId;
+    }
+
+    public int getClienteEmpresaId() {
+        return clienteEmpresaId;
+    }
+
+    public void setClienteEmpresaId(int clienteempresaId) {
+        this.clienteEmpresaId = clienteempresaId;
+    }
+
+    public int getCreditoId() {
+        return creditoId;
+    }
+
+    public void setCreditoId(int creditoId) {
+        this.creditoId = creditoId;
     }
     
 }

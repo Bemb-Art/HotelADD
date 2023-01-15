@@ -18,7 +18,16 @@ public class CompanyClientDto {
     private String companyClientLastname2;
     private String companyClientPhone;
     private String companyClientEmail;
-    private CompanyDto company;
+    private int companyID;
+    
+    public int getCompanyID() {
+        return companyID;
+    }
+
+    public void setCompanyID(int companyID) {
+        this.companyID = companyID;
+    }
+    
 
     public String getCompanyClientId() {
         return companyClientId;
@@ -91,15 +100,4 @@ public class CompanyClientDto {
     public void setCompanyClientEmail(String companyClientEmail) {
         this.companyClientEmail = companyClientEmail;
     }
-
-    public CompanyDto getCompany() {
-        return company;
-    }
-
-    public void setCompany(CompanyDto company) {
-        this.company = company;
-    }
-    
-    
-    
 }

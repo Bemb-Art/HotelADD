@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author bonni
  */
 @RestController
-@RequestMapping ("/clienteP")
+@RequestMapping ("/clienteParticular")
 public class ClienteParticularController {
     private final ClienteParticularService cpService;
     
@@ -27,12 +27,12 @@ public class ClienteParticularController {
         this.cpService = cpService;
     }
     
-    @PostMapping
+    @PostMapping("/createParticularClient")
     public ClienteParticularEntity createClienteP(@RequestBody ClientDto client) {
        return this.cpService.createClienteP(client);
     }
     
-    @GetMapping
+    @GetMapping("/getAllClientParticular")
     public List<ClienteParticularEntity> getClienteP(){
         return this.cpService.getClienteP();
     }

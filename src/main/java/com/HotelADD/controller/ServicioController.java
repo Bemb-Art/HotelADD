@@ -27,12 +27,12 @@ public class ServicioController {
         this.sService = sService;
     }
     
-    @PostMapping
+    @PostMapping("/crearServicio")
     public ServicioEntity createServicio(@RequestBody ServiceDto service){
         return this.sService.createServicio(service);
     }
     
-    @GetMapping
+    @GetMapping("/obtenerServicio")
     public List<ServicioEntity> getServicio(){
         return this.sService.getServicio();
     }

@@ -26,7 +26,7 @@ public class HabitacionController {
         this.hService = hService;
     }
     
-    @GetMapping
+    @GetMapping("/obtenerHabitacion")
     public List<HabitacionEntity> getHabitacion(){
         return this.hService.getHabitacion();
     }

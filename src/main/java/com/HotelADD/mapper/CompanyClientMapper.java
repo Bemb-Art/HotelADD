@@ -26,12 +26,13 @@ public interface CompanyClientMapper {
         @Mapping(source = "clienteEmpresaApellido1", target = "companyClientLastname1"),
         @Mapping(source = "clienteEmpresaApellido2", target = "companyClientLastname2"), 
         @Mapping(source = "clienteEmpresaTelefono", target = "companyClientPhone"),
-        @Mapping(source = "clienteEmpresaCorreo", target = "companyClientEmail"),   
-        @Mapping(source = "empresaFk", target = "company")
+        @Mapping(source = "clienteEmpresaCorreo", target = "companyClientEmail"),
+        @Mapping(source = "empresaId", target = "companyID"),
     })
     CompanyClientDto toClient(ClientesEmpresasEntity clienteEmpresa);
     
     @InheritInverseConfiguration
-    @Mapping(target = "clienteEmpresaId", ignore = true)        
+    @Mapping(target = "clienteEmpresaId", ignore = true)     
+    @Mapping(target = "empresaFk", ignore = true)
     ClientesEmpresasEntity toClienteEmpresa(CompanyClientDto companyClient);
 }

@@ -27,12 +27,12 @@ public class RentaVehiculoController {
         this.rService = rService;
     }
     
-    @GetMapping
+    @GetMapping("/obtenerRentaVeh")
     public List<RentaVehiculoEntity> getRentaVehiculo(){
         return this.rService.getRentaVehiculo();
     }
     
-    @PostMapping
+    @PostMapping("/crearRentaVeh")
     public RentaVehiculoEntity createRentaVehiculo(@RequestBody VehicleRentalDto vehicleRental) {
        return this.rService.createRentaVehiculo(vehicleRental);
     }

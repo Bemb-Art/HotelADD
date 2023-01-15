@@ -23,13 +23,17 @@ public interface ReservationMapper {
         @Mapping(source = "reservacionFechaFin", target = "reservationExit"),
         @Mapping(source = "reservacionHuespedAdulto", target = "reservationAdult"),
         @Mapping(source = "reservacionNinio", target = "reservationKid"),
-        @Mapping(source = "clienteParticularFk", target = "client"),
-        @Mapping(source = "clienteEmpresaFk", target = "companyClient"),
-        @Mapping(source = "habitacionFk", target = "room"),
-        @Mapping(source = "serivicioFk", target = "service")
+        @Mapping(source = "clienteParticularId", target = "clientId"),
+        @Mapping(source = "clienteEmpresaId", target = "companyClientId"),
+        @Mapping(source = "habitacionId", target = "roomId"),
+        @Mapping(source = "servicioId", target = "serviceId")
     })
     ReservationDto toReservation(ReservacionEntity reservacion);
     
-    @InheritInverseConfiguration          
+    @InheritInverseConfiguration   
+    @Mapping(target = "clienteParticularFk", ignore = true)
+    @Mapping(target = "clienteEmpresaFk", ignore = true)
+    @Mapping(target = "habitacionFk", ignore = true)
+    @Mapping(target = "serivicioFk", ignore = true)
     ReservacionEntity toReservacion(ReservationDto reservation);
 }

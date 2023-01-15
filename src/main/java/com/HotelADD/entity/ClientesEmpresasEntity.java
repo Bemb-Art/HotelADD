@@ -57,6 +57,17 @@ public class ClientesEmpresasEntity implements Serializable {
     @Column(name = "clienteempresa_correo")
     private String clienteEmpresaCorreo;
     
+    @Column (name = "empresa_id")
+    private Integer empresaId;
+
+    public Integer getEmpresaId() {
+        return empresaId;
+    }
+
+    public void setEmpresaId(Integer EmpresaId) {
+        this.empresaId = EmpresaId;
+    }
+    
     @OneToMany(mappedBy = "clienteEmpresaFk")
     private List<PagoEntity> pago;
     

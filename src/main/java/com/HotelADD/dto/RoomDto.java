@@ -18,9 +18,9 @@ public class RoomDto {
     private char roomOutside;
     private BigDecimal roomStandarPrice;
     private BigDecimal roomWeekendPrice;
-    private RoomStatusDto roomStatus;
-    private UserDto user;
-    private MaintenanceDto maintenance;
+    private int roomStatusId;
+    private int userId;
+    private int maintenanceId;
 
     public Long getRoomId() {
         return roomId;
@@ -78,28 +78,28 @@ public class RoomDto {
         this.roomWeekendPrice = roomWeekendPrice;
     }
 
-    public RoomStatusDto getRoomStatus() {
-        return roomStatus;
+    public int getRoomStatusId() {
+        return roomStatusId;
     }
 
-    public void setRoomStatus(RoomStatusDto roomStatus) {
-        this.roomStatus = roomStatus;
+    public void setRoomStatusId(int roomStatusId) {
+        this.roomStatusId = roomStatusId;
     }
 
-    public UserDto getUser() {
-        return user;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setUser(UserDto user) {
-        this.user = user;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
-    public MaintenanceDto getMaintenance() {
-        return maintenance;
+    public int getMaintenanceId() {
+        return maintenanceId;
     }
 
-    public void setMaintenance(MaintenanceDto maintenance) {
-        this.maintenance = maintenance;
+    public void setMaintenanceId(int maintenanceId) {
+        this.maintenanceId = maintenanceId;
     }
-    
+
 }

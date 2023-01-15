@@ -38,22 +38,41 @@ public class FacturaEntity implements Serializable {
     @Column(name = "factura_estado")
     private String facturaEstado;
     
+    @Column(name = "clienteparticular_id")
+    private int clienteParticularId;
+    
     @ManyToOne
     @JoinColumn(name = "clienteparticular_id", insertable = false, updatable = false)
     private ClienteParticularEntity clienteParticularFk;
+    
+    @Column(name = "clienteempresa_id")
+    private int clienteEmpresaId;
     
     @ManyToOne
     @JoinColumn(name = "clienteempresa_id", insertable = false, updatable = false)
     private ClientesEmpresasEntity clienteEmpresaFk;
     
+    @Column(name = "credito_id")
+    private int creditoId;
+    
     @ManyToOne
     @JoinColumn(name = "credito_id", insertable = false, updatable = false)
     private CreditoEntity creditoFk;
+    
+    @Column(name = "servicio_id")
+    private int servicioId;
     
     @ManyToOne
     @JoinColumn(name = "servicio_id", insertable = false, updatable = false)
     private ServicioEntity serivicioFk;
 
+    @Column(name = "reservacion_id")
+    private int reservacionId;
+    
+    @ManyToOne
+    @JoinColumn(name = "reservacion_id", insertable = false, updatable = false)
+    private ReservacionEntity reservacionFk;
+    
     public Long getFacturaNumero() {
         return facturaNumero;
     }
@@ -117,4 +136,54 @@ public class FacturaEntity implements Serializable {
     public void setSerivicioFk(ServicioEntity serivicioFk) {
         this.serivicioFk = serivicioFk;
     }
+
+    public int getClienteParticularId() {
+        return clienteParticularId;
+    }
+
+    public void setClienteParticularId(int clienteParticularId) {
+        this.clienteParticularId = clienteParticularId;
+    }
+
+    public int getClienteEmpresaId() {
+        return clienteEmpresaId;
+    }
+
+    public void setClienteEmpresaId(int clienteEmpresaId) {
+        this.clienteEmpresaId = clienteEmpresaId;
+    }
+
+    public int getCreditoId() {
+        return creditoId;
+    }
+
+    public void setCreditoId(int creditoId) {
+        this.creditoId = creditoId;
+    }
+
+    public int getServicioId() {
+        return servicioId;
+    }
+
+    public void setServicioId(int servicioId) {
+        this.servicioId = servicioId;
+    }
+
+    public int getReservacionId() {
+        return reservacionId;
+    }
+
+    public void setReservacionId(int reservacionId) {
+        this.reservacionId = reservacionId;
+    }
+
+    public ReservacionEntity getReservacionFk() {
+        return reservacionFk;
+    }
+
+    public void setReservacionFk(ReservacionEntity reservacionFk) {
+        this.reservacionFk = reservacionFk;
+    }
+    
+    
 }

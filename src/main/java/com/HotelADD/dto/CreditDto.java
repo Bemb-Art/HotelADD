@@ -15,7 +15,7 @@ public class CreditDto {
     private BigDecimal creditTotal;
     private String creditDays;
     private String creditStatus;
-    private CompanyClientDto companyClient;
+    private int companyClientId;
 
     public String getCreditNumber() {
         return creditNumber;
@@ -49,13 +49,13 @@ public class CreditDto {
         this.creditStatus = creditStatus;
     }
 
-    public CompanyClientDto getCompanyClient() {
-        return companyClient;
+    public int getCompanyClientId() {
+        return companyClientId;
     }
 
-    public void setCompanyClient(CompanyClientDto companyClient) {
-        this.companyClient = companyClient;
+    public void setCompanyClientId(int companyClientId) {
+        this.companyClientId = companyClientId;
     }
-    
+
     
 }

@@ -24,7 +24,7 @@ public class TrasladoController {
         this.tService = tService;
     }
     
-    @GetMapping
+    @GetMapping("/obtenerTraslado")
     public List<TrasladoEntity> getTrasladon(){
         return this.tService.getTraslado();
     }

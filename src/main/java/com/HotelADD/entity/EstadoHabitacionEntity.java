@@ -33,6 +33,9 @@ public class EstadoHabitacionEntity implements Serializable {
     @Column(name = "estadohabitacion_tipo")
     private String estadoHabitacionTipo;   
     
+    @Column(name = "mantenimiento_id")
+    private Integer mantenimientoId;   
+    
     @OneToMany(mappedBy = "estadoHabitacionFk")
     private List<HabitacionEntity> habitacion;
     
@@ -54,6 +57,14 @@ public class EstadoHabitacionEntity implements Serializable {
 
     public void setEstadoHabitacionTipo(String estadoHabitacionTipo) {
         this.estadoHabitacionTipo = estadoHabitacionTipo;
+    }
+
+    public Integer getMantenimientoId() {
+        return mantenimientoId;
+    }
+
+    public void setMantenimientoId(Integer mantenimientoId) {
+        this.mantenimientoId = mantenimientoId;
     }
     
 }

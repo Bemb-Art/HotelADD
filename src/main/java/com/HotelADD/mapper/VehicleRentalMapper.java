@@ -21,11 +21,12 @@ public interface VehicleRentalMapper {
         @Mapping(source = "rentaVehiculoFechaInicio", target = "vehicleRentalStartDate"),
         @Mapping(source = "rentaVehiculoFechaFin", target = "vehicleRentalEndDate"),
         @Mapping(source = "rentaVehiculoPrecio", target = "vehicleRentalPrice"),
-        @Mapping(source = "vehiculoFk", target = "vehicle")
+        @Mapping(source = "vehiculoId", target = "vehicleId")
     })
     VehicleRentalDto toVehicleRental(RentaVehiculoEntity rentaVehiculo);
     
     @InheritInverseConfiguration  
-    @Mapping(target = "rentaVehiculoId", ignore = true)        
+    @Mapping(target = "rentaVehiculoId", ignore = true) 
+    @Mapping(target = "vehiculoFk", ignore = true)
     RentaVehiculoEntity toRentaVehiculo(VehicleRentalDto vehicleRental);
 }

@@ -40,6 +40,9 @@ public class CreditoEntity implements Serializable {
     @Column(name = "credito_estado")
     private String creditoEstado;
     
+    @Column(name = "clienteempresa_id")
+    private int clienteEmpresa_id;
+    
     @OneToMany(mappedBy = "creditoFk")
     private List<PagoEntity> pago;
     
@@ -82,6 +85,14 @@ public class CreditoEntity implements Serializable {
         this.creditoEstado = creditoEstado;
     }
 
+    public Integer getClienteEmpresa_id() {
+        return clienteEmpresa_id;
+    }
+
+    public void setClienteEmpresa_id(Integer clienteEmpresa_id) {
+        this.clienteEmpresa_id = clienteEmpresa_id;
+    }       
+
     public ClientesEmpresasEntity getClienteEmpresaFk() {
         return clienteEmpresaFk;
     }
@@ -89,5 +100,6 @@ public class CreditoEntity implements Serializable {
     public void setClienteEmpresaFk(ClientesEmpresasEntity clienteEmpresaFk) {
         this.clienteEmpresaFk = clienteEmpresaFk;
     }
+
     
 }

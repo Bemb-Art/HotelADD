@@ -6,6 +6,7 @@ package com.HotelADD.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,6 +14,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.Data;
 
@@ -36,22 +38,37 @@ public class ReservacionEntity implements Serializable {
     private Date reservacionFechaFin;
     
     @Column(name = "reservacion_adulto")
-    private char reservacionHuespedAdulto;
+    private String reservacionHuespedAdulto;
     
     @Column(name = "reservacion_ninio")
-    private char reservacionNinio;
+    private String reservacionNinio;
+    
+    @OneToMany(mappedBy = "reservacionFk")
+    private List<FacturaEntity> factura;
+    
+    @Column(name = "clienteparticular_id")
+    private int clienteParticularId;
     
     @ManyToOne
     @JoinColumn(name = "clienteparticular_id", insertable = false, updatable = false)
     private ClienteParticularEntity clienteParticularFk;
     
+    @Column(name = "clienteempresa_id")
+    private int clienteEmpresaId;
+    
     @ManyToOne
     @JoinColumn(name = "clienteempresa_id", insertable = false, updatable = false)
     private ClientesEmpresasEntity clienteEmpresaFk;
     
+    @Column(name = "habitacion_id")
+    private int habitacionId;
+    
     @ManyToOne
     @JoinColumn(name = "habitacion_id", insertable = false, updatable = false)
     private HabitacionEntity habitacionFk;
+    
+    @Column(name = "servicio_id")
+    private int servicioId;
     
     @ManyToOne
     @JoinColumn(name = "servicio_id", insertable = false, updatable = false)
@@ -81,20 +98,20 @@ public class ReservacionEntity implements Serializable {
         this.reservacionFechaFin = reservacionFechaFin;
     }
 
-    public char getReservacionHuespedAdulto() {
+    public String getReservacionHuespedAdulto() {
         return reservacionHuespedAdulto;
     }
 
-    public void setReservacionHuespedAdulto(char reservacionHuespedAdulto) {
-        this.reservacionHuespedAdulto = reservacionHuespedAdulto;
+    public String setReservacionHuespedAdulto(String reservacionHuespedAdulto) {
+        return this.reservacionHuespedAdulto = reservacionHuespedAdulto;
     }
 
-    public char getReservacionNinio() {
+    public String getReservacionNinio() {
         return reservacionNinio;
     }
 
-    public void setReservacionNinio(char reservacionNinio) {
-        this.reservacionNinio = reservacionNinio;
+    public String setReservacionNinio(String reservacionNinio) {
+        return this.reservacionNinio = reservacionNinio;
     }
 
     public ClienteParticularEntity getClienteParticularFk() {
@@ -127,6 +144,38 @@ public class ReservacionEntity implements Serializable {
 
     public void setSerivicioFk(ServicioEntity serivicioFk) {
         this.serivicioFk = serivicioFk;
+    }
+
+    public int getClienteParticularId() {
+        return clienteParticularId;
+    }
+
+    public void setClienteParticularId(int clienteParticularId) {
+        this.clienteParticularId = clienteParticularId;
+    }
+
+    public int getClienteEmpresaId() {
+        return clienteEmpresaId;
+    }
+
+    public void setClienteEmpresaId(int clienteEmpresaId) {
+        this.clienteEmpresaId = clienteEmpresaId;
+    }
+
+    public int getHabitacionId() {
+        return habitacionId;
+    }
+
+    public void setHabitacionId(int habitacionId) {
+        this.habitacionId = habitacionId;
+    }
+
+    public int getServicioId() {
+        return servicioId;
+    }
+
+    public void setServicioId(int servicioId) {
+        this.servicioId = servicioId;
     }
             
 }

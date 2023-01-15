@@ -10,7 +10,7 @@ package com.HotelADD.dto;
  */
 public class MaintenanceDto {
     private String maintenanceDescription;
-    private UserDto user;
+    private int userId;
 
     public String getMaintenanceDescription() {
         return maintenanceDescription;
@@ -20,12 +20,12 @@ public class MaintenanceDto {
         this.maintenanceDescription = maintenanceDescription;
     }
 
-    public UserDto getUser() {
-        return user;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setUser(UserDto user) {
-        this.user = user;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
     
 }

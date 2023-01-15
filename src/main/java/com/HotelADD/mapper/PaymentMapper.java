@@ -21,12 +21,15 @@ public interface PaymentMapper {
         @Mapping(source = "pagoNumero", target = "paymentNumber"),
         @Mapping(source = "pagoTotal", target = "paymentTotal"),
         @Mapping(source = "pagoFecha", target = "paymentDate"),
-        @Mapping(source = "clienteParticularFk", target = "companyClient"),
-        @Mapping(source = "clienteEmpresaFk", target = "client"),
-        @Mapping(source = "creditoFk", target = "credit"),
+        @Mapping(source = "clienteParticularId", target = "companyClientId"),
+        @Mapping(source = "clienteEmpresaId", target = "clientId"),
+        @Mapping(source = "creditoId", target = "creditId"),
     })
     PaymentDto toPayment(PagoEntity pago);
     
-    @InheritInverseConfiguration      
+    @InheritInverseConfiguration    
+    @Mapping(target = "clienteParticularFk", ignore = true)
+    @Mapping(target = "clienteEmpresaFk", ignore = true)
+    @Mapping(target = "creditoFk", ignore = true)
     PagoEntity toPayment(PaymentDto payment);
 }

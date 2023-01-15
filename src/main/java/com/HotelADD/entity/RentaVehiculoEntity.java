@@ -44,6 +44,9 @@ public class RentaVehiculoEntity implements Serializable {
     @OneToMany(mappedBy = "rentaVehiculoFk")
     private List<ServicioEntity> servicio;
     
+    @Column(name = "vehiculo_id")
+    private int vehiculoId;
+    
     @ManyToOne
     @JoinColumn(name = "vehiculo_id", insertable = false, updatable = false)
     private VehiculoEntity vehiculoFk;
@@ -87,5 +90,14 @@ public class RentaVehiculoEntity implements Serializable {
     public void setVehiculoFk(VehiculoEntity vehiculoFk) {
         this.vehiculoFk = vehiculoFk;
     }
+
+    public int getVehiculoId() {
+        return vehiculoId;
+    }
+
+    public void setVehiculoId(int vehiculoId) {
+        this.vehiculoId = vehiculoId;
+    }
+    
     
 }

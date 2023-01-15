@@ -24,7 +24,7 @@ public class DesayunoController {
         this.dService = dService;
     }
     
-    @GetMapping
+    @GetMapping("/obtenerDesayuno")
     public List<DesayunoEntity> getDesayuno(){
         return this.dService.getDesayuno();
     }

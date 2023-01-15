@@ -27,12 +27,12 @@ public class MantenimientoController {
         this.mService = mService;
     }
     
-    @PostMapping
+    @PostMapping("/crearMantenimiento")
     public MantenimientoEntity createMantenimiento(@RequestBody MaintenanceDto maintenance) {
        return this.mService.createMantenimiento(maintenance);
     }
     
-    @GetMapping
+    @GetMapping("/obtenerMantenimiento")
     public List<MantenimientoEntity> getMantenimiento(){
         return this.mService.getMantenimiento();
     }

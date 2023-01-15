@@ -27,12 +27,12 @@ public class PagoController {
         this.pService = pService;
     }
     
-    @PostMapping
+    @PostMapping("/crearPago")
     public PagoEntity createPago(@RequestBody PaymentDto payment) {
        return this.pService.createPago(payment);
     }
     
-    @GetMapping
+    @GetMapping("/obtenerPago")
     public List<PagoEntity> getPago(){
         return this.pService.getPago();
     }

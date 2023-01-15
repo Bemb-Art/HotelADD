@@ -6,7 +6,8 @@ package com.HotelADD.service;
 
 import com.HotelADD.dto.CreditDto;
 import com.HotelADD.entity.CreditoEntity;
-import com.HotelADD.mapper.CreditMapperImpl;
+import com.HotelADD.mapper.CreditMapper;
+//import com.HotelADD.mapper.CreditMapperImpl;
 import com.HotelADD.repository.CreditoRepository;
 import java.util.List;
 import org.springframework.stereotype.Service;
@@ -18,11 +19,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class CreditoService {
     private final CreditoRepository repositorio;
-    private final CreditMapperImpl mapper;
+    private final CreditMapper mapper;
     
-    public CreditoService(CreditoRepository repositorio, CreditMapperImpl mapper){
+    public CreditoService(CreditoRepository repositorio){
         this.repositorio = repositorio;
-        this.mapper = mapper;
+        this.mapper = null;
     }
     
     public CreditoEntity createCredito(CreditDto credit) {

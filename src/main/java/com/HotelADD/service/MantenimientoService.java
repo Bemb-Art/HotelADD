@@ -6,7 +6,7 @@ package com.HotelADD.service;
 
 import com.HotelADD.dto.MaintenanceDto;
 import com.HotelADD.entity.MantenimientoEntity;
-import com.HotelADD.mapper.MaintenanceMapperImpl;
+import com.HotelADD.mapper.MaintenanceMapper;
 import com.HotelADD.repository.MantenimientoRepository;
 import java.util.List;
 import org.springframework.stereotype.Service;
@@ -18,9 +18,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class MantenimientoService {
     private final MantenimientoRepository repositorio;
-    private final MaintenanceMapperImpl mapper;
+    private final MaintenanceMapper mapper;
     
-    public MantenimientoService(MantenimientoRepository repositorio, MaintenanceMapperImpl mapper){
+    public MantenimientoService(MantenimientoRepository repositorio, MaintenanceMapper mapper){
         this.repositorio = repositorio;
         this.mapper = mapper;
     }

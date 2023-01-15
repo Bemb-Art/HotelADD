@@ -22,10 +22,11 @@ public interface CreditMapper {
         @Mapping(source = "creditoTotal", target = "creditTotal"),
         @Mapping(source = "creditoDias", target = "creditDays"),
         @Mapping(source = "creditoEstado", target = "creditStatus"),
-        @Mapping(source = "clienteEmpresaFk", target = "companyClient")
+        @Mapping(source = "clienteEmpresa_id", target = "companyClientId")
     })
     CreditDto toCredit(CreditoEntity credito);
     
-    @InheritInverseConfiguration        
+    @InheritInverseConfiguration
+    @Mapping(target = "clienteEmpresaFk", ignore = true)
     CreditoEntity toCredito(CreditDto credit);
 }

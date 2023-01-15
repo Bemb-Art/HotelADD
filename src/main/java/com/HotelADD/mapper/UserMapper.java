@@ -21,10 +21,11 @@ public interface UserMapper {
         @Mapping(source = "usuarioId", target = "userId"),
         @Mapping(source = "usuarioNombre", target = "userName"),
         @Mapping(source = "usuarioContrasenia", target = "userPasword"),
-        @Mapping(source = "empleadoFk", target = "employee")
+        @Mapping(source = "empleadoId", target = "employeeId")
     })
     UserDto toUser(UsuarioEntity usuario);
     
-    @InheritInverseConfiguration         
+    @InheritInverseConfiguration   
+    @Mapping(target = "empleadoFk", ignore = true)
     UsuarioEntity toUsuario(UserDto user);
 }

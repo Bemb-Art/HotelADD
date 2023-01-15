@@ -27,12 +27,12 @@ public class CreditoController {
         this.cService = cService;
     }
     
-    @PostMapping
+    @PostMapping("/createCredito")
     public CreditoEntity createCredito(@RequestBody CreditDto credit) {
        return this.cService.createCredito(credit);
     }
     
-    @GetMapping
+    @GetMapping("/obtenerCredito")
     public List<CreditoEntity> getCredito(){
         return this.cService.getCredito();
     }

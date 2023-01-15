@@ -19,11 +19,12 @@ import org.mapstruct.Mappings;
 public interface MaintenanceMapper {
     @Mappings({
         @Mapping(source = "mantenimientoDescripcion", target = "maintenanceDescription"),
-        @Mapping(source = "usuarioFk", target = "user")
+        @Mapping(source = "usuarioId", target = "userId")
     })
     MaintenanceDto toMaintenance(MantenimientoEntity mantenimiento);
     
     @InheritInverseConfiguration  
-    @Mapping(target = "mantenimientoId", ignore = true)        
+    @Mapping(target = "mantenimientoId", ignore = true)      
+    @Mapping(target = "usuarioFk", ignore = true)
     MantenimientoEntity toMantenimiento(MaintenanceDto maintenance);
 }

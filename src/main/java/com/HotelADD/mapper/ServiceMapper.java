@@ -19,13 +19,16 @@ import org.mapstruct.Mappings;
 public interface ServiceMapper {
     @Mappings({
         @Mapping(source = "servicioDescripcion", target = "serviceDescription"),
-        @Mapping(source = "rentaVehiculoFk", target = "vehicleRental"),
-        @Mapping(source = "desayunoFk", target = "traslation"),
-        @Mapping(source = "trasladoFk", target = "breakfast")
+        @Mapping(source = "rentaVehiculoId", target = "vehicleRentalId"),
+        @Mapping(source = "desayunoId", target = "traslationId"),
+        @Mapping(source = "trasladoId", target = "breakfastId")
     })
     ServiceDto toService(ServicioEntity servicio);
     
     @InheritInverseConfiguration  
-    @Mapping(target = "servicioId", ignore = true)        
+    @Mapping(target = "servicioId", ignore = true)
+    @Mapping(target = "rentaVehiculoFk", ignore = true)
+    @Mapping(target = "desayunoFk", ignore = true)
+    @Mapping(target = "trasladoFk", ignore = true)
     ServicioEntity toServicio(ServiceDto service);
 }

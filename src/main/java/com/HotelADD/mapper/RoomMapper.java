@@ -25,12 +25,15 @@ public interface RoomMapper {
         @Mapping(source = "habitacionExterior", target = "roomOutside"),
         @Mapping(source = "habitacionPrecioEstandar", target = "roomStandarPrice"),
         @Mapping(source = "habitacionFinDeSemana", target = "roomWeekendPrice"),
-        @Mapping(source = "estadoHabitacionFk", target = "roomStatus"),
-        @Mapping(source = "usuarioFk", target = "user"),
-        @Mapping(source = "mantenimientoFk", target = "maintenance")    
+        @Mapping(source = "estadoHabitacionId", target = "roomStatusId"),
+        @Mapping(source = "usuarioId", target = "userId"),
+        @Mapping(source = "mantenimientoId", target = "maintenanceId")    
     })
     RoomDto toRoom(HabitacionEntity habitacion);
     
-    @InheritInverseConfiguration        
+    @InheritInverseConfiguration    
+    @Mapping(target = "estadoHabitacionFk", ignore = true)
+    @Mapping(target = "usuarioFk", ignore = true)
+    @Mapping(target = "mantenimientoFk", ignore = true)
     HabitacionEntity toHabitacion(RoomDto room);
 }

@@ -15,9 +15,9 @@ public class PaymentDto {
     private Long paymentNumber;
     private BigDecimal paymentTotal;
     private Date paymentDate;
-    private CompanyClientDto companyClient;
-    private ClientDto client;
-    private CreditDto credit;
+    private int companyClientId;
+    private int clientId;
+    private int creditId;
 
     public Long getPaymentNumber() {
         return paymentNumber;
@@ -43,28 +43,30 @@ public class PaymentDto {
         this.paymentDate = paymentDate;
     }
 
-    public CompanyClientDto getCompanyClient() {
-        return companyClient;
+    public int getCompanyClientId() {
+        return companyClientId;
     }
 
-    public void setCompanyClient(CompanyClientDto companyClient) {
-        this.companyClient = companyClient;
+    public void setCompanyClientId(int companyClientId) {
+        this.companyClientId = companyClientId;
     }
 
-    public ClientDto getClient() {
-        return client;
+    public int getClientId() {
+        return clientId;
     }
 
-    public void setClient(ClientDto client) {
-        this.client = client;
+    public void setClientId(int clientId) {
+        this.clientId = clientId;
     }
 
-    public CreditDto getCredit() {
-        return credit;
+    public int getCreditId() {
+        return creditId;
     }
 
-    public void setCredit(CreditDto credit) {
-        this.credit = credit;
+    public void setCreditId(int creditId) {
+        this.creditId = creditId;
     }
+
+    
     
 }

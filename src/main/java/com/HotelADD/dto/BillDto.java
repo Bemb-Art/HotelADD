@@ -15,10 +15,11 @@ public class BillDto {
     private String billSerie;
     private BigDecimal billTotal;
     private String billStatus;
-    private ClientDto client;
-    private CompanyClientDto companyClient;
-    private CreditDto credit;
-    private ServiceDto service;
+    private int clientId;
+    private int companyClientId;
+    private int creditId;
+    private int serviceId;
+    private int reservationId;
 
     public Long getBillNumber() {
         return billNumber;
@@ -52,37 +53,46 @@ public class BillDto {
         this.billStatus = billStatus;
     }
 
-    public ClientDto getClient() {
-        return client;
+    public int getClientId() {
+        return clientId;
     }
 
-    public void setClient(ClientDto client) {
-        this.client = client;
+    public void setClientId(int clientId) {
+        this.clientId = clientId;
     }
 
-    public CompanyClientDto getCompanyClient() {
-        return companyClient;
+    public int getCompanyClientId() {
+        return companyClientId;
     }
 
-    public void setCompanyClient(CompanyClientDto companyClient) {
-        this.companyClient = companyClient;
+    public void setCompanyClientId(int companyClientId) {
+        this.companyClientId = companyClientId;
     }
 
-    public CreditDto getCredit() {
-        return credit;
+    public int getCreditId() {
+        return creditId;
     }
 
-    public void setCredit(CreditDto credit) {
-        this.credit = credit;
+    public void setCreditId(int creditId) {
+        this.creditId = creditId;
     }
 
-    public ServiceDto getService() {
-        return service;
+    public int getServiceId() {
+        return serviceId;
     }
 
-    public void setService(ServiceDto service) {
-        this.service = service;
+    public void setServiceId(int serviceId) {
+        this.serviceId = serviceId;
     }
+
+    public int getReservationId() {
+        return reservationId;
+    }
+
+    public void setReservationId(int reservationId) {
+        this.reservationId = reservationId;
+    }
+
     
     
 }

@@ -40,6 +40,9 @@ public class UsuarioEntity implements Serializable {
     @OneToMany(mappedBy = "usuarioFk")
     private List<HabitacionEntity> habitacion;
     
+    @Column(name = "empleado_id")
+    private String empleadoId;
+    
     @ManyToOne
     @JoinColumn(name = "empleado_id", insertable = false, updatable = false)
     private EmpleadoEntity empleadoFk;
@@ -74,6 +77,14 @@ public class UsuarioEntity implements Serializable {
 
     public void setEmpleadoFk(EmpleadoEntity empleadoFk) {
         this.empleadoFk = empleadoFk;
+    }
+
+    public String getEmpleadoId() {
+        return empleadoId;
+    }
+
+    public void setEmpleadoId(String empleadoId) {
+        this.empleadoId = empleadoId;
     }
     
 }

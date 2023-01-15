@@ -12,7 +12,7 @@ public class UserDto {
     private Long userId;
     private String userName;
     private String userPasword;
-    private EmployeeDto employee;
+    private int employeeId;
 
     public Long getUserId() {
         return userId;
@@ -38,12 +38,12 @@ public class UserDto {
         this.userPasword = userPasword;
     }
 
-    public EmployeeDto getEmployee() {
-        return employee;
+    public Integer getEmployeeId() {
+        return employeeId;
     }
 
-    public void setEmployee(EmployeeDto employee) {
-        this.employee = employee;
+    public void setEmployeeId(Integer employeeId) {
+        this.employeeId = employeeId;
     }
     
     

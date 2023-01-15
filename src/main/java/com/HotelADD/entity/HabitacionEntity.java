@@ -51,14 +51,23 @@ public class HabitacionEntity implements Serializable {
     
     @OneToMany(mappedBy = "habitacionFk")
     private List<ReservacionEntity> reservacion;
+        
+    @Column(name = "estadohabitacion_id")
+    private int estadoHabitacionId;
     
     @ManyToOne
     @JoinColumn(name = "estadohabitacion_id", insertable = false, updatable = false)
     private EstadoHabitacionEntity estadoHabitacionFk;
     
+    @Column(name = "usuario_id")
+    private int usuarioId;
+    
     @ManyToOne
     @JoinColumn(name = "usuario_id", insertable = false, updatable = false)
     private UsuarioEntity usuarioFk;
+    
+    @Column(name = "mantenimiento_id")
+    private int mantenimientoId;
     
     @ManyToOne
     @JoinColumn(name = "mantenimiento_id", insertable = false, updatable = false)
@@ -142,6 +151,30 @@ public class HabitacionEntity implements Serializable {
 
     public void setMantenimientoFk(MantenimientoEntity mantenimientoFk) {
         this.mantenimientoFk = mantenimientoFk;
+    }
+
+    public int getEstadoHabitacionId() {
+        return estadoHabitacionId;
+    }
+
+    public void setEstadoHabitacionId(int estadoHabitacionId) {
+        this.estadoHabitacionId = estadoHabitacionId;
+    }
+
+    public int getUsuarioId() {
+        return usuarioId;
+    }
+
+    public void setUsuarioId(int usuarioId) {
+        this.usuarioId = usuarioId;
+    }
+
+    public int getMantenimientoId() {
+        return mantenimientoId;
+    }
+
+    public void setMantenimientoId(int mantenimientoId) {
+        this.mantenimientoId = mantenimientoId;
     }
     
 }

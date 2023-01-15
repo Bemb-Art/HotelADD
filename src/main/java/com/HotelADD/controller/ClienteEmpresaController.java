@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author bonni
  */
 @RestController
-@RequestMapping ("/clienteE")
+@RequestMapping ("/clienteEmpresa")
 public class ClienteEmpresaController {
     private final ClienteEmpresaService ceService;
     
@@ -27,12 +27,12 @@ public class ClienteEmpresaController {
         this.ceService = ceService;
     }
     
-    @PostMapping
+    @PostMapping("/CreateCliente")
     public ClientesEmpresasEntity createClienteE(@RequestBody CompanyClientDto companyC) {
        return this.ceService.createClienteE(companyC);
     }
     
-    @GetMapping
+    @GetMapping("/AllClientesEmpresa")
     public List<ClientesEmpresasEntity> getClienteE(){
         return this.ceService.getClienteE();
     }
