@@ -4,7 +4,7 @@ $(document).ready(function() {
 });
 
 async function cargarFacturas () {
-    const res = await fetch ('http://localhost:8383/hotelADD/ingresos/allUsuarios', {
+    const res = await fetch ('http://localhost:8383/hotelADD/facturas/AllFacture', {
     method: 'GET',
     headers: {
         'Accept': 'application/json',
@@ -12,24 +12,26 @@ async function cargarFacturas () {
     }    
 });
 
-const usuarios = await res.json();
+const facturas = await res.json();
 
 
 let listadoHtml = '';
-for (let usuario of usuarios){
-    let rowUsuario = `<tr>
-    <td>${usuario.usuarioId}</td>
-    <td>${usuario.empleadoFk.empleadoNombre1} ${usuario .empleadoFk.empleadoNombre2} ${usuario.empleadoFk.empleadoApellido1}</td>
-    <td> ${usuario.usuarioNombre}</td>
-    <td>${usuario.empleadoFk.empleadoCorreo}</td>
-    <td>${usuario.usuarioContrasenia}</td>
+for (let factura of facturas){
+    let rowFactura = `<tr>
+    <td>${factura.facturaNumero} - ${factura.facturaSerie}</td>
+    <td>${factura.facturaTotal}</td>
+    <td>${factura.facturaEstado}</td>
+    <td>${factura.clienteParticularFk.clienteParticularNombre1} ${factura.clienteParticularFk.clienteParticularNombre2} ${factura.clienteParticularFk.clienteParticularApellido1} ${factura.clienteParticularFk.clienteParticularApellido2}</td>
+    <td>${factura.creditoFk.clienteEmpresaFk.clienteEmpresaNombre1} ${factura.creditoFk.clienteEmpresaFk.clienteEmpresaNombre2} ${factura.creditoFk.clienteEmpresaFk.clienteEmpresaApellido1} ${factura.creditoFk.clienteEmpresaFk.clienteEmpresaApellido2}</td>
+    <td>${factura.creditoFk.creditoNumero}</td>
+    <td>${factura.reservaFk.servicioId}</td>
     </tr>`; 
         
-        listadoHtml += rowUsuario;
+        listadoHtml += rowFactura;
     
 }
-let tbUsuarios = document.querySelector('#tbUsuarios tbody');
-tbUsuarios.innerHTML = listadoHtml;
+let tbFactura = document.querySelector('#tbUsuarios tbody');
+tbFactura.innerHTML = listadoHtml;
 
 }
 

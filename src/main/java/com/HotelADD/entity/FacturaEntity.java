@@ -41,34 +41,34 @@ public class FacturaEntity implements Serializable {
     @Column(name = "clienteparticular_id")
     private int clienteParticularId;
     
+    @Column(name = "clienteempresa_id")
+    private int clienteEmpresaId;
+    
+    @Column(name = "credito_id")
+    private int creditoId;
+    
+    @Column(name = "servicio_id")
+    private int servicioId;
+
+    @Column(name = "reservacion_id")
+    private int reservacionId;
+    
     @ManyToOne
     @JoinColumn(name = "clienteparticular_id", insertable = false, updatable = false)
     private ClienteParticularEntity clienteParticularFk;
-    
-    @Column(name = "clienteempresa_id")
-    private int clienteEmpresaId;
     
     @ManyToOne
     @JoinColumn(name = "clienteempresa_id", insertable = false, updatable = false)
     private ClientesEmpresasEntity clienteEmpresaFk;
     
-    @Column(name = "credito_id")
-    private int creditoId;
-    
     @ManyToOne
     @JoinColumn(name = "credito_id", insertable = false, updatable = false)
     private CreditoEntity creditoFk;
-    
-    @Column(name = "servicio_id")
-    private int servicioId;
     
     @ManyToOne
     @JoinColumn(name = "servicio_id", insertable = false, updatable = false)
     private ServicioEntity serivicioFk;
 
-    @Column(name = "reservacion_id")
-    private int reservacionId;
-    
     @ManyToOne
     @JoinColumn(name = "reservacion_id", insertable = false, updatable = false)
     private ReservacionEntity reservacionFk;
