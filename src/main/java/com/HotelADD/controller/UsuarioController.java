@@ -31,8 +31,13 @@ public class UsuarioController{
         return this.uService.getUsuario(usuario_nombre);
     }
     
-    @GetMapping("/log/{userName}")
+    @GetMapping("/logIn/{userName}")
     public Optional<UsuarioEntity> getComparacionC(@PathVariable("userName") String usuario_nombre){
         return this.uService.getComparacionC(usuario_nombre);
+    }
+    
+    @GetMapping("allUsuarios")
+    public List<UsuarioEntity> getAllUsuarios(){
+    return this.uService.getAllUsuarios();
     }
 }

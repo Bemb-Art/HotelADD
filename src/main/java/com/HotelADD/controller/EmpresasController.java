@@ -27,12 +27,12 @@ public class EmpresasController {
         this.eService = eService;
     }
     
-    @PostMapping
+    @PostMapping("/CreateCompany")
     public EmpresasEntity createEmpresas(@RequestBody CompanyDto company) {
        return this.eService.createEmpresa(company);
     }
     
-    @GetMapping
+    @GetMapping("/allCompanys")
     public List<EmpresasEntity> getEmpresas(){
         return this.eService.getEmpresa();
     }

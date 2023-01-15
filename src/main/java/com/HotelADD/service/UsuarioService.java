@@ -29,4 +29,10 @@ public class UsuarioService {
     public Optional<UsuarioEntity> getComparacionC(String usuario_nombre){
         return this.repositorio.comparacionC(usuario_nombre);
     }
+    
+    public List<UsuarioEntity> getAllUsuarios (){
+        return this.repositorio.findAll();
+    }
+    
+    
 }

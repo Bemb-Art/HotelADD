@@ -34,12 +34,12 @@ public class FacturaController {
         return this.fService.getFacturaByNumber(factura_numero);
     }
     
-    @PostMapping
+    @PostMapping("/CreateFactua")
     public FacturaEntity createFactura(@RequestBody BillDto bill) {
        return this.fService.createFactura(bill);
     }
     
-    @GetMapping
+    @GetMapping("/AllFacture")
     public List<FacturaEntity> getFactura(){
         return this.fService.getFactura();
     }
