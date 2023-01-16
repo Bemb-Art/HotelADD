@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.HotelADD</groupId>
 	<artifactId>Hotel-ADD</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0 version</version>
 	<name>Hotel-ADD</name>
 	<description>Administracion de Hotel</description>
 	<properties>
